@@ -1,0 +1,96 @@
+<composition app_id="no_app_yet" id="NX_Analysis">
+  <general>
+    <clock type="wall"></clock>
+  </general>
+  <install>
+    <threadpool num_threads="4" id="0">
+      <core number="1"></core>
+    </threadpool>
+	
+    <block threadpool="0" invocation="async" type="PcapSource" id="1361197813388">
+      <params>
+        <source type="trace"
+        name="/mnt/filer/trace_20121115_24h.pcap" />
+      </params>
+    </block>
+	
+    <block threadpool="0" invocation="async" type="PcapSource" id="1">
+      <params>
+        <source type="trace"
+        name="/mnt/filer/trace_20121115_24h.pcap" />
+      </params>
+    </block>
+	
+    <block invocation="direct" type="IDMEFExporter"
+    id="1361201089511">
+      <params>
+        <file name="/tmp/idmefexport" />
+      </params>
+    </block>
+	
+    <block invocation="direct" type="PacketFilter" id="1361269643880">
+      <params>
+        <l3_protocol number="2048">
+          <filter_mode behavior="accept" />
+        </l3_protocol>
+        <l4_protocol number="17">
+          <filter_mode behavior="accept" />
+        </l4_protocol>
+        <src_port number='53'>
+          <filter_mode behavior='accept' />
+        </src_port>
+      </params>
+    </block>
+	
+    <block invocation="direct" type="DNSDemux" id="1361270126921">
+      <params></params>
+    </block>
+	
+    <block invocation="direct" type="DNSPacketNR" id="1361270131655">
+      <params>
+        <infection_threshold value='0.70' />
+        <buffer_size value='10000' />
+        <proxy_fillrate value='0.1' />
+        <inter_filter value='0.1' />
+        <number_hash value='2' />
+        <overal_bf_size value='1000000' />
+        <overal_bf_threshold value='0.5' />
+        <flush_time value='3600' />
+        <results_directory value='/tmp/' />
+      </params>
+    </block>
+    
+	<block invocation="direct" type="DNSPacketNX" id="1361270133156">
+      <params>
+        <correlation_timeout value='300' />
+        <proxy_fillrate value='0.2' />
+        <merge_threshold value='0.60' />
+        <buffer_size value='1000' />
+        <number_hash value='1' />
+        <reset_time value='72000' />
+        <communities_threshold value='6' />
+        <results_directory value='/tmp/' />
+        <flush_time value='3600' />
+      </params>
+    </block>
+    
+	<block invocation="direct" type="DNSCorrelate" id="1361270137713">
+      <params>
+        <merge_threshold value='0.60' />
+        <buffer_size value='1000' />
+        <communities_threshold value='3' />
+        <correlate_time value='300' />
+        <flush_time value='3600' />
+      </params>
+    </block>
+    
+	<connection dst_gate="in_pkt" dst_block="1361269643880" src_gate="source_out" src_block="1361197813388"></connection>
+    <connection dst_gate="in_pkt" dst_block="1361269643880" src_gate="source_out" src_block="1"></connection>
+    <connection dst_gate="in_pkt" dst_block="1361270126921" src_gate="out_pkt" src_block="1361269643880"></connection>
+    <connection dst_gate="in_msg_nx" dst_block="1361270133156" src_gate="out_msg_nx" src_block="1361270126921"></connection>
+    <connection dst_gate="in_msg_nr" dst_block="1361270131655" src_gate="out_msg_nr" src_block="1361270126921"></connection>
+    <connection dst_gate="in_infectedlist" dst_block="1361270137713" src_gate="out_infectedlist" src_block="1361270133156"></connection>
+    <connection dst_gate="in_alert" dst_block="1361270131655" src_gate="out_alert" src_block="1361270137713"></connection>
+    <connection dst_gate="in_alert" dst_block="1361201089511" src_gate="out_alert" src_block="1361270131655"></connection>
+  </install>
+</composition>

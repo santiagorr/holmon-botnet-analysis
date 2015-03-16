@@ -1,0 +1,20 @@
+[DEFAULT]
+#bm_basepath = /home/blockmon/sigcommdemo/blockmon
+bm_basepath = /home/santiago/research/src/blockmon-frankestein/
+
+[MAIN]
+bm_process_exec = %(bm_basepath)s/daemon/core/bmprocess.py
+#logging_dir = /home/blockmon/sigcommdemo/blockmon/log
+logging_dir = /home/santiago/tmp/blockmon/log
+#tmp_dir = /home/blockmon/sigcommdemo/blockmon/tmp
+tmp_dir = /home/santiago/tmp/blockmon/tmp
+
+[NETWORK]
+listening_port = 7080
+#bc_ipaddr = 127.0.0.1
+#bc_listening_port = 7090
+#iface = eth0
+
+[BLOCKS]
+block_ext = .cpp
+blocks_path = %(bm_basepath)s/blocks

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://www.semanticweb.org/holmon/DNSTraffic-1" uri="file:/home/santiago/research/PostDoc-AllInOne/botnet-dns-ipfix-scenario/DNS.owl"/>
+    <uri id="User Entered Import Resolution" name="http://www.fp7-moment.eu/MomentDataV2.owl" uri="file:/home/santiago/research/MOMENT-Ontologies/Ontology/MomentDataV2.owl"/>
+    <uri id="User Entered Import Resolution" name="http://www.fp7-moment.eu/MomentMetadata.owl" uri="file:/home/santiago/research/MOMENT-Ontologies/Ontology/MomentMetadata.owl"/>
+    <uri id="User Entered Import Resolution" name="http://www.fp7-moment.eu/Moment.owl" uri="file:/home/santiago/research/MOMENT-Ontologies/Ontology/Moment.owl"/>
+    <uri id="User Entered Import Resolution" name="http://www.fp7-moment.eu/MomentUnits.owl" uri="file:/home/santiago/research/MOMENT-Ontologies/Ontology/MomentUnits.owl"/>
+    <uri id="User Entered Import Resolution" name="http://www.fp7-moment.eu/MomentGeneralConcepts.owl" uri="file:/home/santiago/research/MOMENT-Ontologies/Ontology/MomentGeneralConcepts.owl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1425463268318" name="duplicate:http://www.semanticweb.org/holmon/IPFIXRepports" uri="IPFIX.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1425463268318" name="duplicate:http://www.semanticweb.org/holmon/IPFIXRepports" uri="IPFIX2-simplified-for-images.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1425463268318" name="duplicate:http://www.semanticweb.org/santiago/ontologies/2014/1/DNSTraffic-1" uri="DNS.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1425463268318" name="duplicate:http://www.semanticweb.org/santiago/ontologies/2014/1/DNSTraffic-1" uri="DNS-simplified-for-images.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1425463268318" name="http://www.semanticweb.org/santiago/ontologies/2014/5/untitled-ontology-49" uri="holmon-1.owl"/>
+    </group>
+</catalog>

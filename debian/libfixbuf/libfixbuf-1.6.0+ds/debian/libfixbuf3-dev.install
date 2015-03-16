@@ -1,0 +1,5 @@
+usr/include
+usr/lib/*/libfixbuf*.so
+usr/lib/*/libfixbuf*.a
+usr/lib/*/libfixbuf.la
+usr/lib/*/pkgconfig/libfixbuf.pc

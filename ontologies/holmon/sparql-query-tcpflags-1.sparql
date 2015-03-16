@@ -1,0 +1,15 @@
+PREFIX db: <http://localhost:2020/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX map: <http://localhost:2020/resource/#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX vocab: <http://localhost:2020/resource/vocab/>
+SELECT (COUNT(DISTINCT ?id) as ?no) ?srcip WHERE {
+?flowmsg vocab:flows_id ?id ;
+         vocab:flows_srcip4 ?srcip .
+?tcpmsg vocab:tcp_id ?id ;
+        vocab:tcp_unionTCPFlags "" .
+}
+GROUP BY ?srcip
+ORDER BY DESC(?no)

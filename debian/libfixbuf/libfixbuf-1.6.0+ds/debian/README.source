@@ -1,0 +1,3 @@
+the original upstream tarball is repacked by debian/repack.sh which is executed
+by uscan. It removes the tarball containing the python binding as well as the
+pre-generated documentation.

@@ -1,0 +1,6 @@
+version=3
+opts="filenamemangle=s/#release-([\d\.]+)/libfixbuf_$1+ds.orig.tar.gz/,\
+dversionmangle=s/\+ds$//,\
+downloadurlmangle=s/(http:\/\/tools\.netsa\.cert\.org\/)fixbuf\/#release-([\d\.]+)/$1releases\/libfixbuf-$2.tar.gz/" \
+ http://tools.netsa.cert.org/fixbuf/download.html \
+ #release-([\d\.]+) debian debian/repack.sh

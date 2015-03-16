@@ -1,0 +1,242 @@
+# mapping DNS DB
+
+@prefix map: <#> .
+@prefix db: <> .
+@prefix holmondns: <holmondns/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix jdbc: <http://d2rq.org/terms/jdbc/> .
+@prefix holmon: <file:////home/santiago/research/PostDoc-AllInOne/botnet-dns-ipfix-scenario/DNS.owl> .
+@prefix MD: <http://www.fp7-moment.eu/Moment.owl> .
+
+map:database a d2rq:Database;
+	d2rq:jdbcDriver "com.mysql.jdbc.Driver";
+	d2rq:jdbcDSN "jdbc:mysql://127.0.0.1/holmondns";
+	d2rq:username "holmon";
+	d2rq:password "holmon";
+	jdbc:autoReconnect "true";
+	jdbc:zeroDateTimeBehavior "convertToNull";
+	.
+
+# Table DNSAdditional
+map:DNSAdditional a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "DNSAdditional" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "DNSAdditional";
+	d2rq:class holmondns:DNSAdditional;
+	d2rq:classDefinitionLabel "DNSAdditional";
+	.
+map:DNSAdditional_Query_ID a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSAdditional;
+	d2rq:property holmondns:DNSAdditional_Query_ID;
+	d2rq:propertyDefinitionLabel "DNSAdditional Query_ID";
+	d2rq:column "DNSAdditional.Query_ID";
+	d2rq:datatype xsd:integer;
+	.
+
+# Table DNSAnswer
+map:DNSAnswer a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "DNSAnswer" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "DNSAnswer";
+	d2rq:class holmondns:DNSAnswer;
+	d2rq:classDefinitionLabel "DNSAnswer";
+	.
+map:DNSAnswer_Query_ID a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSAnswer;
+	d2rq:property holmondns:DNSAnswer_Query_ID;
+	d2rq:propertyDefinitionLabel "DNSAnswer Query_ID";
+	d2rq:column "DNSAnswer.Query_ID";
+	d2rq:datatype xsd:integer;
+	.
+map:DNSAnswer_Type a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSAnswer;
+	d2rq:property holmondns:DNSAnswer_Type;
+	d2rq:propertyDefinitionLabel "DNSAnswer Type";
+	d2rq:column "DNSAnswer.Type";
+	d2rq:datatype xsd:integer;
+	.
+map:DNSAnswer_Class a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSAnswer;
+	d2rq:property holmondns:DNSAnswer_Class;
+	d2rq:propertyDefinitionLabel "DNSAnswer Class";
+	d2rq:column "DNSAnswer.Class";
+	d2rq:datatype xsd:integer;
+	.
+map:DNSAnswer_TTL a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSAnswer;
+	d2rq:property holmondns:DNSAnswer_TTL;
+	d2rq:propertyDefinitionLabel "DNSAnswer TTL";
+	d2rq:column "DNSAnswer.TTL";
+	d2rq:datatype xsd:integer;
+	.
+map:DNSAnswer_RDlength a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSAnswer;
+	d2rq:property holmondns:DNSAnswer_RDlength;
+	d2rq:propertyDefinitionLabel "DNSAnswer RDlength";
+	d2rq:column "DNSAnswer.RDlength";
+	d2rq:datatype xsd:integer;
+	.
+map:DNSAnswer_RDATA a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSAnswer;
+	d2rq:property holmondns:DNSAnswer_RDATA;
+	d2rq:propertyDefinitionLabel "DNSAnswer RDATA";
+	d2rq:column "DNSAnswer.RDATA";
+	.
+
+# Table DNSMessageHeader
+map:DNSMessageHeader a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "DNSMessageHeader/@@DNSMessageHeader.PacketID@@";
+	d2rq:class holmondns:DNSMessageHeader;
+	d2rq:classDefinitionLabel "DNSMessageHeader";
+	d2rq:class holmon:DNSPacket;
+	.
+map:DNSMessageHeader__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSMessageHeader;
+	d2rq:property rdfs:label;
+	d2rq:pattern "DNSMessageHeader #@@DNSMessageHeader.PacketID@@";
+	.
+map:DNSMessageHeader_PacketID a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSMessageHeader;
+	d2rq:property holmondns:DNSMessageHeader_PacketID;
+	d2rq:propertyDefinitionLabel "DNSMessageHeader PacketID";
+	d2rq:column "DNSMessageHeader.PacketID";
+	d2rq:datatype xsd:integer;
+	.
+map:DNSMessageHeader_Query_ID a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSMessageHeader;
+	d2rq:property holmondns:DNSMessageHeader_Query_ID;
+	d2rq:propertyDefinitionLabel "DNSMessageHeader Query_ID";
+	d2rq:column "DNSMessageHeader.Query_ID";
+	d2rq:datatype xsd:integer;
+	.
+map:DNSMessageHeader_QR_flag a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSMessageHeader;
+	d2rq:property holmondns:DNSMessageHeader_QR_flag;
+	d2rq:propertyDefinitionLabel "DNSMessageHeader QR_flag";
+	d2rq:column "DNSMessageHeader.QR_flag";
+	d2rq:valueRegex "^[01]*$";
+	.
+map:DNSMessageHeader_R_code a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSMessageHeader;
+	d2rq:property holmondns:DNSMessageHeader_R_code;
+	d2rq:propertyDefinitionLabel "DNSMessageHeader R_code";
+	d2rq:column "DNSMessageHeader.R_code";
+	d2rq:valueRegex "^[01]*$";
+	.
+map:DNSMessageHeader_QD_count a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSMessageHeader;
+	d2rq:property holmondns:DNSMessageHeader_QD_count;
+	d2rq:propertyDefinitionLabel "DNSMessageHeader QD_count";
+	d2rq:column "DNSMessageHeader.QD_count";
+	d2rq:datatype xsd:integer;
+	.
+map:DNSMessageHeader_AN_count a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSMessageHeader;
+	d2rq:property holmondns:DNSMessageHeader_AN_count;
+	d2rq:propertyDefinitionLabel "DNSMessageHeader AN_count";
+	d2rq:column "DNSMessageHeader.AN_count";
+	d2rq:datatype xsd:integer;
+	.
+map:DNSMessageHeader_NS_count a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSMessageHeader;
+	d2rq:property holmondns:DNSMessageHeader_NS_count;
+	d2rq:propertyDefinitionLabel "DNSMessageHeader NS_count";
+	d2rq:column "DNSMessageHeader.NS_count";
+	d2rq:datatype xsd:integer;
+	.
+map:DNSMessageHeader_AR_count a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSMessageHeader;
+	d2rq:property holmondns:DNSMessageHeader_AR_count;
+	d2rq:propertyDefinitionLabel "DNSMessageHeader AR_count";
+	d2rq:column "DNSMessageHeader.AR_count";
+	d2rq:datatype xsd:integer;
+	.
+map:DNSMessageHeader_time a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSMessageHeader;
+	d2rq:property holmondns:DNSMessageHeader_time;
+	d2rq:propertyDefinitionLabel "DNSMessageHeader time";
+	d2rq:column "DNSMessageHeader.time";
+	d2rq:datatype xsd:dateTime;
+	.
+# d2rq:property para enlazar los concepto MD:SourceIP y MD:DestinationIP
+map:DNSMessageHeader_Source_addr a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSMessageHeader;
+	d2rq:property holmondns:DNSMessageHeader_Source_addr;
+	d2rq:propertyDefinitionLabel "DNSMessageHeader Source_addr";
+	d2rq:column "DNSMessageHeader.Source_addr";
+	d2rq:datatype xsd:integer;
+    d2rq:property MD:SourceIP;
+	.
+map:DNSMessageHeader_Dest_addr a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSMessageHeader;
+	d2rq:property holmondns:DNSMessageHeader_Dest_addr;
+	d2rq:propertyDefinitionLabel "DNSMessageHeader Dest_addr";
+	d2rq:column "DNSMessageHeader.Dest_addr";
+	d2rq:datatype xsd:integer;
+    d2rq:property MD:DestinationIP;
+	.
+
+# Table DNSNameServers
+map:DNSNameServers a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "DNSNameServers" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "DNSNameServers";
+	d2rq:class holmondns:DNSNameServers;
+	d2rq:classDefinitionLabel "DNSNameServers";
+	.
+map:DNSNameServers_Query_ID a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSNameServers;
+	d2rq:property holmondns:DNSNameServers_Query_ID;
+	d2rq:propertyDefinitionLabel "DNSNameServers Query_ID";
+	d2rq:column "DNSNameServers.Query_ID";
+	d2rq:datatype xsd:integer;
+	.
+
+# Table DNSQuestion
+map:DNSQuestion a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "DNSQuestion" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "DNSQuestion";
+	d2rq:class holmondns:DNSQuestion;
+	d2rq:classDefinitionLabel "DNSQuestion";
+	.
+map:DNSQuestion_Query_ID a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSQuestion;
+	d2rq:property holmondns:DNSQuestion_Query_ID;
+	d2rq:propertyDefinitionLabel "DNSQuestion Query_ID";
+	d2rq:column "DNSQuestion.Query_ID";
+	d2rq:datatype xsd:integer;
+	.
+map:DNSQuestion_Q_name a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSQuestion;
+	d2rq:property holmondns:DNSQuestion_Q_name;
+	d2rq:propertyDefinitionLabel "DNSQuestion Q_name";
+	d2rq:column "DNSQuestion.Q_name";
+	.
+map:DNSQuestion_Q_type a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSQuestion;
+	d2rq:property holmondns:DNSQuestion_Q_type;
+	d2rq:propertyDefinitionLabel "DNSQuestion Q_type";
+	d2rq:column "DNSQuestion.Q_type";
+	d2rq:datatype xsd:integer;
+	.
+map:DNSQuestion_Q_class a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:DNSQuestion;
+	d2rq:property holmondns:DNSQuestion_Q_class;
+	d2rq:propertyDefinitionLabel "DNSQuestion Q_class";
+	d2rq:column "DNSQuestion.Q_class";
+	d2rq:datatype xsd:integer;
+	.
+

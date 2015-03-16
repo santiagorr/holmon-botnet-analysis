@@ -1,0 +1,557 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/holmon/IPFIXRepports#"
+     xml:base="http://www.semanticweb.org/holmon/IPFIXRepports"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports">
+        <owl:imports rdf:resource="http://www.fp7-moment.eu/Moment.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DestinationIP -->
+
+    <rdf:Description rdf:about="http://www.fp7-moment.eu/MomentDataV2.owl#DestinationIP">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowDstIp4"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DestinationPort -->
+
+    <rdf:Description rdf:about="http://www.fp7-moment.eu/MomentDataV2.owl#DestinationPort">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowDstPort"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SourceIP -->
+
+    <rdf:Description rdf:about="http://www.fp7-moment.eu/MomentDataV2.owl#SourceIP">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowSrcIp4"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SourcePort -->
+
+    <rdf:Description rdf:about="http://www.fp7-moment.eu/MomentDataV2.owl#SourcePort">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowSrcPort"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#Flow -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#Flow">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#IPFIXInformation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowDstIp4 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowDstIp4">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowDstIp6 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowDstIp6">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowDstPort -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowDstPort">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowEgressInterface -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowEgressInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowFlowAttributes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowFlowAttributes">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowFlowEndMilliseconds -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowFlowEndMilliseconds">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowFlowEndReason -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowFlowEndReason">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowFlowStartMilliseconds -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowFlowStartMilliseconds">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowID -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowID">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowIngressInterface -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowIngressInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowObservationDomain -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowObservationDomain">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowOctetTotalCount -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowOctetTotalCount">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowPacketTotalCount -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowPacketTotalCount">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowProtocol -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowProtocol">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowReverseFlowAttributes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowReverseFlowAttributes">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowReverseOctetTotalCount -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowReverseOctetTotalCount">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowReversePacketTotalCount -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowReversePacketTotalCount">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowSilkAppLabel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowSilkAppLabel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowSrcIp4 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowSrcIp4">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowSrcIp6 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowSrcIp6">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowSrcPort -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowSrcPort">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#FlowVlan -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowVlan">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#Flow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#IPFIXInformation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#IPFIXInformation">
+        <rdfs:subClassOf rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#MeasurementData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#IPFIXReport -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#IPFIXReport">
+        <rdfs:subClassOf rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#Measurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowSilkAppLabel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowProtocol"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#ReverseInitialTCPFlags"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#TcpSequenceNumber"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#ReverseUnionTCPFlags"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowReversePacketTotalCount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowSrcIp4"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowReverseFlowAttributes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowIngressInterface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowOctetTotalCount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowID"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowDstIp4"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowPacketTotalCount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowDstPort"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowFlowEndMilliseconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowFlowAttributes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#TCPInfoId"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowObservationDomain"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowReverseOctetTotalCount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowEgressInterface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#InitialTCPFlags"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#UnionTCPFlags"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowVlan"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowSrcIp6"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowSrcPort"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowFlowEndReason"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowDstIp6"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#ReverseTcpSequenceNumber"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#FlowFlowStartMilliseconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#TCPInfo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#TCPInfo">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#IPFIXInformation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#TCPInfoId -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#TCPInfoId">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#TCPInfo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#InitialTCPFlags -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#InitialTCPFlags">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#TCPInfo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#ReverseInitialTCPFlags -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#ReverseInitialTCPFlags">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#TCPInfo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#ReverseTcpSequenceNumber -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#ReverseTcpSequenceNumber">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#TCPInfo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#ReverseUnionTCPFlags -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#ReverseUnionTCPFlags">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#TCPInfo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#TcpSequenceNumber -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#TcpSequenceNumber">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#TCPInfo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/IPFIXRepports#UnionTCPFlags -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#UnionTCPFlags">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/IPFIXRepports#TCPInfo"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowDstIp4"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowDstIp6"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowDstPort"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowEgressInterface"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowFlowAttributes"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowFlowEndMilliseconds"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowFlowEndReason"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowFlowStartMilliseconds"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowID"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowIngressInterface"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowObservationDomain"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowOctetTotalCount"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowPacketTotalCount"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowProtocol"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowReverseFlowAttributes"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowReverseOctetTotalCount"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowReversePacketTotalCount"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowSilkAppLabel"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowSrcIp4"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowSrcIp6"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowSrcPort"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#FlowVlan"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#TCPInfoId"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#InitialTCPFlags"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#ReverseInitialTCPFlags"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#ReverseTcpSequenceNumber"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#ReverseUnionTCPFlags"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#TcpSequenceNumber"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/IPFIXRepports#UnionTCPFlags"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

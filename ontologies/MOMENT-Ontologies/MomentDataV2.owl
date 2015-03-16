@@ -1,0 +1,3725 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY Tools "http://www.fp7-moment.eu/tools.owl#" >
+    <!ENTITY Units "http://www.fp7-moment.eu/Units.owl/#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY assertion "http://www.owl-ontologies.com/assert.owl#" >
+    <!ENTITY MomentUnits "http://www.fp7-moment.eu/MomentUnits.owl#" >
+    <!ENTITY MD "http://www.fp7-moment.eu/MomentDataV2.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
+    <!ENTITY MomentGeneralConcepts "http://www.fp7-moment.eu/MomentGeneralConcepts.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.fp7-moment.eu/MomentDataV2.owl#"
+     xml:base="http://www.fp7-moment.eu/MomentDataV2.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:assertion="http://www.owl-ontologies.com/assert.owl#"
+     xmlns:Tools="http://www.fp7-moment.eu/tools.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:MomentGeneralConcepts="http://www.fp7-moment.eu/MomentGeneralConcepts.owl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:Units="http://www.fp7-moment.eu/Units.owl/#"
+     xmlns:MomentUnits="http://www.fp7-moment.eu/MomentUnits.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:MD="http://www.fp7-moment.eu/MomentDataV2.owl#">
+    <owl:Ontology rdf:about="http://www.fp7-moment.eu/MomentDataV2.owl">
+        <dc:creator rdf:datatype="&xsd;string">Alfredo Salvador Gonzalez</dc:creator>
+        <dc:creator rdf:datatype="&xsd;string">Alvaro Katsu Tomoyuki</dc:creator>
+        <dc:creator rdf:datatype="&xsd;string">Jorge E. López de Vergara Méndez</dc:creator>
+        <rdfs:comment rdf:datatype="&xsd;string">Version 2. This version is incompatible with previuos versions.</rdfs:comment>
+        <owl:incompatibleWith rdf:datatype="&xsd;string">http://www.fp7-moment.eu/MomentData.owl</owl:incompatibleWith>
+        <owl:versionInfo rdf:datatype="&xsd;string">v2.0</owl:versionInfo>
+        <owl:imports rdf:resource="http://www.fp7-moment.eu/MomentUnits.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#CreatedTimestamp -->
+
+    <owl:ObjectProperty rdf:about="&MD;CreatedTimestamp">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Timestamp with the date of creation.</rdfs:comment>
+        <rdfs:range rdf:resource="&MomentGeneralConcepts;Timestamp"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&MD;NetworkNode"/>
+                    <rdf:Description rdf:about="&MD;ToolParameters"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DataType -->
+
+    <owl:ObjectProperty rdf:about="&MD;DataType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Form of representation of the data.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;MeasurementData"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ModifiedTimestamp -->
+
+    <owl:ObjectProperty rdf:about="&MD;ModifiedTimestamp">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Timestamp with the date of the last modification.</rdfs:comment>
+        <rdfs:range rdf:resource="&MomentGeneralConcepts;Timestamp"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&MD;NetworkNode"/>
+                    <rdf:Description rdf:about="&MD;ToolParameters"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#canBeCalculatedFrom -->
+
+    <owl:ObjectProperty rdf:about="&MD;canBeCalculatedFrom">
+        <rdfs:comment rdf:datatype="&xsd;string">Simpler metrics allow to determine complex ones by the combination of their results or adding more attributes.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;Metric"/>
+        <rdfs:range rdf:resource="&MD;Metric"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#defaultUnit -->
+
+    <owl:ObjectProperty rdf:about="&MD;defaultUnit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The default unit is the unit in which a measure should be represented.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;MeasurementData"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&MomentUnits;Unit"/>
+                    <rdf:Description rdf:about="&Units;Unit"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#event -->
+
+    <owl:ObjectProperty rdf:about="&MD;event">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&MD;PassiveAnomal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#hasLink -->
+
+    <owl:ObjectProperty rdf:about="&MD;hasLink">
+        <rdfs:comment rdf:datatype="&xsd;string">The Hop or Link between two network nodes</rdfs:comment>
+        <rdfs:range rdf:resource="&MD;Link"/>
+        <rdfs:domain rdf:resource="&MD;Path"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData -->
+
+    <owl:ObjectProperty rdf:about="&MD;hasMeasurementData">
+        <rdfs:comment rdf:datatype="&xsd;string">Different data which can be obtained from the measurement. Those Values determine the metrics measured and stated in :measuresMetric property</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;Measurement"/>
+        <rdfs:range rdf:resource="&MD;MeasurementData"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#hasMetricAttributes -->
+
+    <owl:ObjectProperty rdf:about="&MD;hasMetricAttributes">
+        <rdfs:comment rdf:datatype="&xsd;string">The metric attributtes relationed with a metric, the individual results of each measurement attribute ( column in the database case )</rdfs:comment>
+        <rdfs:range rdf:resource="&MD;MeasurementData"/>
+        <rdfs:domain rdf:resource="&MD;Metric"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#hasNetworkNode -->
+
+    <owl:ObjectProperty rdf:about="&MD;hasNetworkNode">
+        <rdfs:comment rdf:datatype="&xsd;string">Nodes tha are relationated with the network object</rdfs:comment>
+        <rdfs:range rdf:resource="&MD;NetworkNode"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&MD;Interface"/>
+                    <rdf:Description rdf:about="&MD;Proxy"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#hasPath -->
+
+    <owl:ObjectProperty rdf:about="&MD;hasPath">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A path is a secuence of Nodes conected with hops or links. The order is not stated because is easy to compute given the first and the last node.</rdfs:comment>
+        <rdfs:range rdf:resource="&MD;Path"/>
+        <rdfs:domain rdf:resource="&MD;Traceroute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#hasSegment -->
+
+    <owl:ObjectProperty rdf:about="&MD;hasSegment">
+        <rdfs:comment rdf:datatype="&xsd;string">A topology is composed of any number of segmets that should be specified here</rdfs:comment>
+        <rdfs:range rdf:resource="&MD;Path"/>
+        <rdfs:domain rdf:resource="&MD;Topology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#isMeasuredIn -->
+
+    <owl:ObjectProperty rdf:about="&MD;isMeasuredIn">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The units of measure in which is measured the result.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;MeasurementData"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&MomentUnits;Unit"/>
+                    <rdf:Description rdf:about="&Units;Unit"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#isStatisticalMeasurementOf -->
+
+    <owl:ObjectProperty rdf:about="&MD;isStatisticalMeasurementOf">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The measure associated with the statistical measurement.</rdfs:comment>
+        <rdfs:range rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:domain rdf:resource="&MD;StatisticalMeasurement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#measurementsAnalyzed -->
+
+    <owl:ObjectProperty rdf:about="&MD;measurementsAnalyzed">
+        <rdfs:comment rdf:datatype="&xsd;string">The measurements used to perform the statistical analysis</rdfs:comment>
+        <rdfs:range rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:domain rdf:resource="&MD;StatisticalAnalysis"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#measuresMetric -->
+
+    <owl:ObjectProperty rdf:about="&MD;measuresMetric">
+        <rdfs:comment rdf:datatype="&xsd;string">Metrics thar are measured by a measure .</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;Measurement"/>
+        <rdfs:range rdf:resource="&MD;Metric"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#packetProtocol -->
+
+    <owl:ObjectProperty rdf:about="&MD;packetProtocol">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The protocol of the packets used to perform the measurement</rdfs:comment>
+        <rdfs:range rdf:resource="&MomentGeneralConcepts;Protocol"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#timestamp -->
+
+    <owl:ObjectProperty rdf:about="&MD;timestamp">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The time when the measurement was measured on the network</rdfs:comment>
+        <rdfs:range rdf:resource="&MomentGeneralConcepts;Timestamp"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&MD;MRTGMeasurement"/>
+                    <rdf:Description rdf:about="&MD;Measurement"/>
+                    <rdf:Description rdf:about="&MD;TrafficMeasurement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ActiveCentreValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;ActiveCentreValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">State wheter observation point is active or not at the current time.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;ActiveCentre"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#AdvertiserValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;AdvertiserValue">
+        <rdfs:domain rdf:resource="&MD;Advertiser"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#AggregatorValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;AggregatorValue">
+        <rdfs:domain rdf:resource="&MD;Aggregator"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Alias -->
+
+    <owl:DatatypeProperty rdf:about="&MD;Alias">
+        <rdfs:comment rdf:datatype="&xsd;string">SNMP Alias</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;SNMP"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ArgumentsValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;ArgumentsValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of the arguments.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;Arguments"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;MeasurementParametersValue"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#As4AggregatorValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;As4AggregatorValue">
+        <rdfs:domain rdf:resource="&MD;As4Aggregator"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#As4PathValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;As4PathValue">
+        <rdfs:domain rdf:resource="&MD;As4Path"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#AsPathValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;AsPathValue">
+        <rdfs:comment rdf:datatype="&xsd;string">AsPath value.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;AsPath"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#AtomicAggregateValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;AtomicAggregateValue">
+        <rdfs:domain rdf:resource="&MD;AtomicAggregate"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#AvailableCapacityMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;AvailableCapacityMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Bandwidth´s Value</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;AvailableCapacityMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;SimpleMeasurementValue"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#CapacityMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;CapacityMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&MD;CapacityMeasurement"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#CentreIdentifierValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;CentreIdentifierValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Unique Identifier for a centre</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;CentreIdentifier"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#CentreNameValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;CentreNameValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Name of the centre (institute, university, ...) where data have been captured.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;CentreName"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ClusterIDValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;ClusterIDValue">
+        <rdfs:domain rdf:resource="&MD;ClusterID"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ClusterListValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;ClusterListValue">
+        <rdfs:domain rdf:resource="&MD;ClusterList"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#CommunityValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;CommunityValue">
+        <rdfs:domain rdf:resource="&MD;Community"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DPAValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;DPAValue">
+        <rdfs:domain rdf:resource="&MD;DPA"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DagOffsetValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;DagOffsetValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of the offset between system clock (PC) and dag card</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;DagOffset"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;MeasurementDataValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DayTypeValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;DayTypeValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Indicates the type of day. F if it´s holyday or L if it´s working day.</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&MD;DayType"/>
+                    <rdf:Description rdf:about="&MD;MRTGMeasurement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">F</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">L</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DelayVariationMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;DelayVariationMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of the delay variation</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;DelayVariationMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;MeasurementDataValue"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DestinationIPValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;DestinationIPValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">IP of the destination node.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;DestinationIP"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;NodeInformationValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DestinationMacAddressValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;DestinationMacAddressValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of Mac Addres in the destinantion node</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;DestinationMacAddress"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;NodeInformationValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DestinationNameValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;DestinationNameValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Name or direction of the destination node.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;DestinationName"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DestinationPortValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;DestinationPortValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Number of the destination port in a network conexion.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;DestinationPort"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;NodeInformationValue"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DurationValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;DurationValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of duration set in advance of the measure.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;Duration"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ErrorsRateValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;ErrorsRateValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Number of errors per second</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;ErrorsRate"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ExporterNameValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;ExporterNameValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Name of the exporter. (Uses in DIOR)</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;ExporterName"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ExtendedCommunitiesValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;ExtendedCommunitiesValue">
+        <rdfs:domain rdf:resource="&MD;ExtendedCommunities"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#FinalTtlMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;FinalTtlMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of the TTL in the destination node</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;FinalTtlMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;MeasurementDataValue"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#FirstTtlMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;FirstTtlMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of the TTL in the source node</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;FirstTtlMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;MeasurementDataValue"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#GenericEventMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;GenericEventMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&MD;GenericEventMeasurement"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#GenericInterruptionMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;GenericInterruptionMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&MD;GenericInterruptionMeasurement"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#HopCountMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;HopCountMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Number of hop between two different nodes</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;HopCountMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;MeasurementDataValue"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#HurstParameterMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;HurstParameterMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&MD;HurstParameterMeasurement"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#IcmpCodeValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;IcmpCodeValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of the ICMP code of the received packet.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;IcmpCode"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#IcmpTypeValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;IcmpTypeValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of the ICMP type of the received packet</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;IcmpType"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#IncomingTransferRateMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;IncomingTransferRateMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Information per time that comes to the measured node.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;IncomingTransferRateMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;TransferRateMeasurementValue"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#IpIdentifierValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;IpIdentifierValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of the IP identifier field from received packet</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;IpIdentifier"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#IqrIpd -->
+
+    <owl:DatatypeProperty rdf:about="&MD;IqrIpd">
+        <rdfs:isDefinedBy rdf:datatype="&xsd;string">http://ggf.org/ns/nmwg/tools/pinger/2.0</rdfs:isDefinedBy>
+        <rdfs:domain rdf:resource="&MD;PingER"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#LatitudeCoordinateValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;LatitudeCoordinateValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Latitude coordinate where the object is.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;LatitudeCoordinate"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#LinkUtilizationValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;LinkUtilizationValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of the fraction of the capacity that is being used.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;LinkUtilization"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#LocalPrefValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;LocalPrefValue">
+        <rdfs:domain rdf:resource="&MD;LocalPref"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#LongitudeCoordinateValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;LongitudeCoordinateValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Longitude coordinate where the object is.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;LongitudeCoordinate"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MOSMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;MOSMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of MOS.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;MOSMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;SimpleMeasurementValue"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MP_ReachValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;MP_ReachValue">
+        <rdfs:domain rdf:resource="&MD;MP_Reach"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MP_UnreachValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;MP_UnreachValue">
+        <rdfs:domain rdf:resource="&MD;MP_Unreach"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MaxMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;MaxMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&MD;MaxMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;StatisticalMeasurementValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MeanMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;MeanMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">mean Value from a statistacl measurement.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;MeanMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;StatisticalMeasurementValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MeasurementDataValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;MeasurementDataValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The value related to a measurement. Should be the property of a MeasurementData (or one of its subclasses) instance and other details as unit and datatype should be present</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&MD;GenericSimpleMeasurement"/>
+                    <rdf:Description rdf:about="&MD;MeasurementData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MeasurementParametersValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;MeasurementParametersValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&MD;GenericParameter"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;MeasurementDataValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MessageTypeValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;MessageTypeValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of the type of message</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;MessageType"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MinMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;MinMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&MD;MinMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;StatisticalMeasurementValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MultiExitValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;MultiExitValue">
+        <rdfs:domain rdf:resource="&MD;MultiExit"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Name -->
+
+    <owl:DatatypeProperty rdf:about="&MD;Name">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">MD:Result : 
+  Key for the result if it is a string</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&MD;GenericParameter"/>
+                    <rdf:Description rdf:about="&MD;GenericSimpleMeasurement"/>
+                    <rdf:Description rdf:about="&MD;NetworkObject"/>
+                    <rdf:Description rdf:about="&MD;SNMP"/>
+                    <rdf:Description rdf:about="&MD;ToolParameters"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NetworkNameValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;NetworkNameValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">name of the network where is being measuring. (uses in DIOR)</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;NetworkName"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NextHopValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;NextHopValue">
+        <rdfs:domain rdf:resource="&MD;NextHop"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NlriIpValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;NlriIpValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of the Network Layer Reachability Information Ip address</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;NlriIp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NlriMaskValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;NlriMaskValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Network Layer Reachability Information mask</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;NlriMask"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NodeIPValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;NodeIPValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of the IP of the Node</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;NodeIP"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NodeInformationValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;NodeInformationValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Values about a node information.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&MD;MeasurementDataValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NodeMacAddressValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;NodeMacAddressValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of the Mac Address of the node.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;NodeMacAddress"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NodeNameValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;NodeNameValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Name or direction of the node</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;NodeName"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NodePortValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;NodePortValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Port used for the measurement in the Node.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;NodePort"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#OID -->
+
+    <owl:DatatypeProperty rdf:about="&MD;OID">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Object identifier for SNMP Values</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;SNMP"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#OneWayDelayMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;OneWayDelayMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The numerical value related to the one way delay measurement.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;OneWayDelayMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;SimpleMeasurementValue"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#OriginValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;OriginValue">
+        <rdfs:domain rdf:resource="&MD;Origin"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#OriginatorIDValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;OriginatorIDValue">
+        <rdfs:domain rdf:resource="&MD;OriginatorID"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#OutgoingTransferRateMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;OutgoingTransferRateMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Information per time that go out from the measured node.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;OutgoingTransferRateMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;TransferRateMeasurementValue"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#P00ParameterValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;P00ParameterValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of P00 parameter.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&MD;MeasurementParametersValue"/>
+        <rdfs:domain rdf:resource="&MD;P00Parameter"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#P11ParameterValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;P11ParameterValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of P11 parameter</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&MD;MeasurementParametersValue"/>
+        <rdfs:domain rdf:resource="&MD;P11Parameter"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PacketAndTrainPropertiesValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;PacketAndTrainPropertiesValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;MeasurementDataValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PacketIdentifierValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;PacketIdentifierValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of the packet´s identifier</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&MD;PacketAndTrainPropertiesValue"/>
+        <rdfs:domain rdf:resource="&MD;PacketIdentifier"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PacketLossMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;PacketLossMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of the porcentage of lossing packets.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;PacketLossMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;SimpleMeasurementValue"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PacketSizeValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;PacketSizeValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Size of the packet.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&MD;PacketAndTrainPropertiesValue"/>
+        <rdfs:domain rdf:resource="&MD;PacketSize"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PacketsCountValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;PacketsCountValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">number of packets in a train.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&MD;PacketAndTrainPropertiesValue"/>
+        <rdfs:domain rdf:resource="&MD;PacketsCount"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PathCapacityMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;PathCapacityMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of Capacity</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&MD;MeasurementDataValue"/>
+        <rdfs:domain rdf:resource="&MD;PathCapacityMeasurement"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PathUsageMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;PathUsageMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of throughput</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;LinkUsageMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;SimpleMeasurementValue"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PauseParameterValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;PauseParameterValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Time between differents measurements</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&MD;MeasurementParametersValue"/>
+        <rdfs:domain rdf:resource="&MD;PauseParameter"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PeerAsValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;PeerAsValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Autonomous system number of a peer</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;PeerAs"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PpsOffsetValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;PpsOffsetValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of the offset between PPS signal from GPS and NTP clock</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&MD;MeasurementDataValue"/>
+        <rdfs:domain rdf:resource="&MD;PpsOffset"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ProbeRateMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;ProbeRateMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&MD;ProbeRateMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;SimpleMeasurementValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#QueryNumberParameterValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;QueryNumberParameterValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Number of times to send a query for a given hop</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;QueryNumberParameter"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ResultType -->
+
+    <owl:DatatypeProperty rdf:about="&MD;ResultType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Type of result</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;GenericSimpleMeasurement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#RoundTripDelayMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;RoundTripDelayMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The numerical value related to the round trip delay measurement.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;RoundTripDelayMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;SimpleMeasurementValue"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SNMPCommunity -->
+
+    <owl:DatatypeProperty rdf:about="&MD;SNMPCommunity">
+        <rdfs:domain rdf:resource="&MD;SNMP"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SNMPVersion -->
+
+    <owl:DatatypeProperty rdf:about="&MD;SNMPVersion">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;SNMP"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">v1</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">v2</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">v3</rdf:first>
+                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SamplingRateValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;SamplingRateValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Defines the number of samples per second taken from a continuous signal to make a discrete signal</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;SamplingRate"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;SimpleMeasurementValue"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SatelliteCountMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;SatelliteCountMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&MD;SatelliteCountMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;SimpleMeasurementValue"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SequenceIndexValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;SequenceIndexValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&MD;SequenceIndex"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SimpleMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;SimpleMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;MeasurementDataValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SourceIPValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;SourceIPValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of the IP of the source node</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&MD;NodeInformationValue"/>
+        <rdfs:domain rdf:resource="&MD;SourceIP"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SourceMacAddressValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;SourceMacAddressValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of Mac address in the source node.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&MD;NodeInformationValue"/>
+        <rdfs:domain rdf:resource="&MD;SourceMacAddress"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SourceNameValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;SourceNameValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Name or direction of the source node.</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;SourceName"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SourcePortValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;SourcePortValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;NodeInformationValue"/>
+        <rdfs:domain rdf:resource="&MD;SourcePort"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Startum -->
+
+    <owl:DatatypeProperty rdf:about="&MD;Startum">
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;NetworkNode"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#StatisticalMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;StatisticalMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;MeasurementDataValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#StatusValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;StatusValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of the special status of a node</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;Status"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#TOS -->
+
+    <owl:DatatypeProperty rdf:about="&MD;TOS">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Type of Service</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;Ping"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#TimeValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;TimeValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&MD;Time"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ToolVersionValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;ToolVersionValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The version of the tool</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;ToolVersion"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#TrainIdentifierValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;TrainIdentifierValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Unique identifier of the train that the packet form part</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&MD;PacketAndTrainPropertiesValue"/>
+        <rdfs:domain rdf:resource="&MD;TrainIdentifier"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#TransferRateMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;TransferRateMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&MD;SimpleMeasurementValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#VarMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;VarMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">variance from a statistacal measurement.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&MD;StatisticalMeasurementValue"/>
+        <rdfs:domain rdf:resource="&MD;VarMeasurement"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#WaitTimeParameterValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;WaitTimeParameterValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value for the maximum time to wait for reply.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&MD;MeasurementParametersValue"/>
+        <rdfs:domain rdf:resource="&MD;WaitTimeParameter"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#X00ParameterValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;X00ParameterValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of X00 parameter.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&MD;MeasurementParametersValue"/>
+        <rdfs:domain rdf:resource="&MD;X00Parameter"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#X11ParameterValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;X11ParameterValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Value of X11 parameter.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&MD;MeasurementParametersValue"/>
+        <rdfs:domain rdf:resource="&MD;X11Parameter"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#authrealm -->
+
+    <owl:DatatypeProperty rdf:about="&MD;authrealm">
+        <rdfs:domain rdf:resource="&MD;Interface"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#capacity -->
+
+    <owl:DatatypeProperty rdf:about="&MD;capacity">
+        <rdfs:comment rdf:datatype="&xsd;string">Tha interface capacity in MBytes / sec</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;Interface"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#classOfService -->
+
+    <owl:DatatypeProperty rdf:about="&MD;classOfService">
+        <rdfs:comment rdf:datatype="&xsd;string">a 3 bit field within an Ethernet frame header when using 802.1Q tagging</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;Interface"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#clp -->
+
+    <owl:DatatypeProperty rdf:about="&MD;clp">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Count of packet lost</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;string">http://ggf.org/ns/nmwg/tools/pinger/2.0</rdfs:isDefinedBy>
+        <rdfs:domain rdf:resource="&MD;PingER"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#deadline -->
+
+    <owl:DatatypeProperty rdf:about="&MD;deadline">
+        <rdfs:comment rdf:datatype="&xsd;string">the point in time at which something must be completed</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;Ping"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#description -->
+
+    <owl:DatatypeProperty rdf:about="&MD;description">
+        <rdfs:comment rdf:datatype="&xsd;string">Description of the concept, process, etc used.
+A textual, human-readable description which defines the concept.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&MD;Measurement"/>
+                    <rdf:Description rdf:about="&MD;NetworkObject"/>
+                    <rdf:Description rdf:about="&MD;ToolParameters"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#direction -->
+
+    <owl:DatatypeProperty rdf:about="&MD;direction">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&MD;Interface"/>
+                    <rdf:Description rdf:about="&MD;MRTGMeasurement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#hostName -->
+
+    <owl:DatatypeProperty rdf:about="&MD;hostName">
+        <rdfs:domain rdf:resource="&MD;Interface"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#id -->
+
+    <owl:DatatypeProperty rdf:about="&MD;id">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Measurements: If the measurement has a unique identifier in the data source where it is held, it should be stated here. This will allow an easier identification of the measurements in their datasources.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&MD;Measurement"/>
+                    <rdf:Description rdf:about="&MD;MeasurementData"/>
+                    <rdf:Description rdf:about="&MD;NetworkObject"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#index -->
+
+    <owl:DatatypeProperty rdf:about="&MD;index">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">MD:result 
+  Key for the result if it is numeric.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&MD;Interface"/>
+                    <rdf:Description rdf:about="&MD;MeasurementData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#isConditionable -->
+
+    <owl:DatatypeProperty rdf:about="&MD;isConditionable">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Indicate if it is contionable (True) or not (False)</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;GenericSimpleMeasurement"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#isRequired -->
+
+    <owl:DatatypeProperty rdf:about="&MD;isRequired">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Indicate if a parameter is required (True) or optional (False)</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;MeasurementParameters"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#isTTLconstMeasurementValue -->
+
+    <owl:DatatypeProperty rdf:about="&MD;isTTLconstMeasurementValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Iis Value is True if is constant or False if not</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;isTTLconstMeasurement"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#isToolResult -->
+
+    <owl:DatatypeProperty rdf:about="&MD;isToolResult">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Indicate if the result was generated by a tool (True) or not (False)</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;GenericSimpleMeasurement"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#needsSelector -->
+
+    <owl:DatatypeProperty rdf:about="&MD;needsSelector">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Indicate if it need a selector (True) or not (False)</rdfs:comment>
+        <rdfs:domain rdf:resource="&MD;GenericSimpleMeasurement"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#seqIndex -->
+
+    <owl:DatatypeProperty rdf:about="&MD;seqIndex">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&MD;Ping"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#seqNum -->
+
+    <owl:DatatypeProperty rdf:about="&MD;seqNum">
+        <rdfs:domain rdf:resource="&MD;PingER"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#type -->
+
+    <owl:DatatypeProperty rdf:about="&MD;type">
+        <rdfs:domain rdf:resource="&MD;PassiveAnomal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ActiveCentre -->
+
+    <owl:Class rdf:about="&MD;ActiveCentre">
+        <rdfs:subClassOf rdf:resource="&MD;GeneralInformation"/>
+        <rdfs:comment rdf:datatype="&xsd;string">State wheter observation point is active or not at the current time.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#AddressMeasurement -->
+
+    <owl:Class rdf:about="&MD;AddressMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;NodeInformation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Advertiser -->
+
+    <owl:Class rdf:about="&MD;Advertiser">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">BGP/IDRP Route Server</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://www.ietf.org/rfc/rfc1863.txt#4.1%20ADVERTISER%20Path%20Attribute</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Aggregator -->
+
+    <owl:Class rdf:about="&MD;Aggregator">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">AGGREGATOR is an optional transitive attribute which MAY be included
+   in updates which are formed by aggregation</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://tools.ietf.org/html/draft-ietf-idr-bgp4-21#section-5.1.7</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Arguments -->
+
+    <owl:Class rdf:about="&MD;Arguments">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementParameters"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Arguments used to take the measurement</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#As4Aggregator -->
+
+    <owl:Class rdf:about="&MD;As4Aggregator">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The AS4_AGGREGATOR
+   attribute has the same semantics as the AGGREGATOR attribute, except
+   that it carries a 4-octet AS number</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#As4Path -->
+
+    <owl:Class rdf:about="&MD;As4Path">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">This is an optional transitive attribute that contains the
+   AS path encoded with 4-octet AS numbers.  The AS4_PATH attribute has
+   the same semantics as the AS_PATH attribute, except that it is
+   optional transitive, and it carries 4-octet AS numbers</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://www.armware.dk/RFC/rfc/rfc4893.html</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#AsPath -->
+
+    <owl:Class rdf:about="&MD;AsPath">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">AS_PATH is a well-known mandatory attribute. This attribute identi-
+   fies the autonomous systems through which routing information carried
+   in this UPDATE message has passed.</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://tools.ietf.org/html/draft-ietf-idr-bgp4-21#section-5.1.2</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#AtomicAggregate -->
+
+    <owl:Class rdf:about="&MD;AtomicAggregate">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">ATOMIC_AGGREGATE is a well-known discretionary attribute.</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://tools.ietf.org/html/draft-ietf-idr-bgp4-21#section-5.1.6</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#AvailableCapacityMeasurement -->
+
+    <owl:Class rdf:about="&MD;AvailableCapacityMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;CapacityMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Available path capacity is the minimum available link capacity (&quot;tight link&quot;) of the links along that path.
+   AvailCap(P,T,I) = min {1..n} {AvailCap(Ln,T,I)}
+
+We define  available link capacity as the  multiplication of th link capacity with the complement of the link utilization:
+   AvailCap(L,T,I) = C(L,T,I) * ( 1 - Util(L,T,I) )</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://www.rfc-editor.org/rfc/rfc5136.txt</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#BGPAttributes -->
+
+    <owl:Class rdf:about="&MD;BGPAttributes">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementParameters"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#CapacityMeasurement -->
+
+    <owl:Class rdf:about="&MD;CapacityMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;defaultUnit"/>
+                <owl:hasValue rdf:resource="&MomentUnits;bitpersec"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Measurement relationed with bandwidth. It measures the information pass through a node per unit of time.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#CentreIdentifier -->
+
+    <owl:Class rdf:about="&MD;CentreIdentifier">
+        <rdfs:subClassOf rdf:resource="&MD;GeneralInformation"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Unique Identifier for a centre</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#CentreName -->
+
+    <owl:Class rdf:about="&MD;CentreName">
+        <rdfs:subClassOf rdf:resource="&MD;GeneralInformation"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Name of the centre (institute, university, ...) where data have been captured.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ClusterID -->
+
+    <owl:Class rdf:about="&MD;ClusterID">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Specifies the identifier for the route reflector cluster. Valid values are integers from 0 and 4294967295.</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://www.powerfast.net/bgp/BGP_Nd5.html</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ClusterList -->
+
+    <owl:Class rdf:about="&MD;ClusterList">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">CLUSTER_LIST is a new, optional, non-transitive BGP attribute of Type
+   code 10.  It is a sequence of CLUSTER_ID values representing the
+   reflection path that the route has passed.</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://www.rfc-editor.org/rfc/rfc4456.txt</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Community -->
+
+    <owl:Class rdf:about="&MD;Community">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A community is a group of destinations which share some common property</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://www.rfc-editor.org/rfc/rfc1997.txt</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DPA -->
+
+    <owl:Class rdf:about="&MD;DPA">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Destination Point Attribute for BGP</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DagOffset -->
+
+    <owl:Class rdf:about="&MD;DagOffset">
+        <rdfs:subClassOf rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;defaultUnit"/>
+                <owl:hasValue rdf:resource="&MomentUnits;second"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Offset between system clock (PC) and dag card</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DayType -->
+
+    <owl:Class rdf:about="&MD;DayType">
+        <rdfs:subClassOf rdf:resource="&MD;GeneralInformation"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Indicates the type of day. F if it´s holyday or L if it´s working day.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DelayMeasurement -->
+
+    <owl:Class rdf:about="&MD;DelayMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;defaultUnit"/>
+                <owl:hasValue rdf:resource="&MomentUnits;second"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">A measurement of the time required to traverse between two nodes.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DelayVariationMeasurement -->
+
+    <owl:Class rdf:about="&MD;DelayVariationMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;defaultUnit"/>
+                <owl:hasValue rdf:resource="&MomentUnits;second"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">INFORMALLY: The variability over time of the packet latency across a network. A measurement of the time difference calculated between a pair of delay measurements.
+
+RFC3393 defines a &quot;IP Packet Delay Variation Metric for IP Performance Metrics (IPPM)&quot; in Section 1.2 as follows:
+   A definition of the IP Packet Delay Variation (ipdv) can be given for
+   packets inside a stream of packets.
+
+   The ipdv of a pair of packets within a stream of packets is defined
+   for a selected pair of packets in the stream going from measurement
+   point MP1 to measurement point MP2.
+
+   The ipdv is the difference between the one-way-delay of the selected packets.</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://www.ietf.org/rfc/rfc3393.txt</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DestinationIP -->
+
+    <owl:Class rdf:about="&MD;DestinationIP">
+        <rdfs:subClassOf rdf:resource="&MD;NodeIP"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;defaultUnit"/>
+                <owl:hasValue rdf:resource="&MomentUnits;ipv4int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">IP address of the destination node</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DestinationMacAddress -->
+
+    <owl:Class rdf:about="&MD;DestinationMacAddress">
+        <rdfs:subClassOf rdf:resource="&MD;NodeMacAddress"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;defaultUnit"/>
+                <owl:hasValue rdf:resource="&MomentUnits;hexadecimalMAC"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Mac address of the destination node</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DestinationName -->
+
+    <owl:Class rdf:about="&MD;DestinationName">
+        <rdfs:subClassOf rdf:resource="&MD;NodeName"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Name or direction of the destination node.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DestinationPort -->
+
+    <owl:Class rdf:about="&MD;DestinationPort">
+        <rdfs:subClassOf rdf:resource="&MD;NodePort"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Number of port of the destination node.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DiscardsRate -->
+
+    <owl:Class rdf:about="&MD;DiscardsRate">
+        <rdfs:subClassOf rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Rate of discards</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Duration -->
+
+    <owl:Class rdf:about="&MD;Duration">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementParameters"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Duration set in advance of the measure.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ErrorsRate -->
+
+    <owl:Class rdf:about="&MD;ErrorsRate">
+        <rdfs:subClassOf rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Rate of errors</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ExporterName -->
+
+    <owl:Class rdf:about="&MD;ExporterName">
+        <rdfs:subClassOf rdf:resource="&MD;GeneralInformation"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Name of the exporter</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ExtendedCommunities -->
+
+    <owl:Class rdf:about="&MD;ExtendedCommunities">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The Extended Communities Attribute is a transitive optional BGP
+   attribute, with the Type Code 16.  The attribute consists of a set of
+   &quot;extended communities&quot;</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://www.rfc-editor.org/rfc/rfc4360.txt</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#FinalTtlMeasurement -->
+
+    <owl:Class rdf:about="&MD;FinalTtlMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">TTL (Time to Live) of the packet at the destination node</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#FirstTtlMeasurement -->
+
+    <owl:Class rdf:about="&MD;FirstTtlMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">TTL (Time to Live) of the package in the source node</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#GeneralInformation -->
+
+    <owl:Class rdf:about="&MD;GeneralInformation">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementData"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Information of a centre of measurement like name, direction, telephone ...</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#GenericEventMeasurement -->
+
+    <owl:Class rdf:about="&MD;GenericEventMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;GeneralInformation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#GenericInterruptionMeasurement -->
+
+    <owl:Class rdf:about="&MD;GenericInterruptionMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;GeneralInformation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#GenericParameter -->
+
+    <owl:Class rdf:about="&MD;GenericParameter">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementParameters"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A non especific parameter.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#GenericSimpleMeasurement -->
+
+    <owl:Class rdf:about="&MD;GenericSimpleMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">GenericSimpleMeasurement class represent all the simple measuremenent that is not represented in the ontology.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#HopCountMeasurement -->
+
+    <owl:Class rdf:about="&MD;HopCountMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Number of hopes between two different nodes</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#HurstParameterMeasurement -->
+
+    <owl:Class rdf:about="&MD;HurstParameterMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementParameters"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#IcmpCode -->
+
+    <owl:Class rdf:about="&MD;IcmpCode">
+        <rdfs:subClassOf rdf:resource="&MD;PacketAndTrainProperties"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The ICMP code of the received packet</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#IcmpType -->
+
+    <owl:Class rdf:about="&MD;IcmpType">
+        <rdfs:subClassOf rdf:resource="&MD;PacketAndTrainProperties"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The ICMP type of the received packet</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#IncomingTransferRateMeasurement -->
+
+    <owl:Class rdf:about="&MD;IncomingTransferRateMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;TransferRateMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Data infomation  that has as destination node the node that is being measured per unit of time.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Interface -->
+
+    <owl:Class rdf:about="&MD;Interface">
+        <rdfs:subClassOf rdf:resource="&MD;NetworkObject"/>
+        <owl:disjointWith rdf:resource="&MD;Path"/>
+        <owl:disjointWith rdf:resource="&MD;Topology"/>
+        <rdfs:comment rdf:datatype="&xsd;string">One of the interfaces of a Node, usually each of the network adapter of the Node. Each of them having different addresses.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://ggf.org/ns/nmwg/topology/2.0#interface</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#IpIdentifier -->
+
+    <owl:Class rdf:about="&MD;IpIdentifier">
+        <rdfs:subClassOf rdf:resource="&MD;PacketAndTrainProperties"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The IP identifier field from a packet</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Iperf -->
+
+    <owl:Class rdf:about="&MD;Iperf">
+        <rdfs:subClassOf rdf:resource="&MD;Measurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMetricAttributes"/>
+                <owl:someValuesFrom rdf:resource="&MD;DestinationIP"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMetricAttributes"/>
+                <owl:someValuesFrom rdf:resource="&MD;CapacityMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMetricAttributes"/>
+                <owl:someValuesFrom rdf:resource="&MD;SourceIP"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Iperf is a commonly used network testing tool that can create TCP and UDP data streams and measure the throughput of a network that is carrying them.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://ggf.org/ns/nmwg/tools/iperf/2.0/</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#LatitudeCoordinate -->
+
+    <owl:Class rdf:about="&MD;LatitudeCoordinate">
+        <rdfs:subClassOf rdf:resource="&MD;NodeInformation"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Latitude coordinate where is  the object.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Link -->
+
+    <owl:Class rdf:about="&MD;Link">
+        <rdfs:subClassOf rdf:resource="&MD;NetworkObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;DestinationIP"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;SourceMacAddress"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;DestinationName"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;DestinationMacAddress"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;SourceName"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;SourceIP"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">A link is a connection between two of these network devices or nodes</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#LinkUsageMeasurement -->
+
+    <owl:Class rdf:about="&MD;LinkUsageMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;CapacityMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The average usage of a link L, Used(L,T,I), is the actual number of  bits of a determinate protocol from any source, correctly received over link L during the interval [T, T+I], divided by I.</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://www.rfc-editor.org/rfc/rfc5136.txt</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#LinkUtilization -->
+
+    <owl:Class rdf:about="&MD;LinkUtilization">
+        <rdfs:subClassOf rdf:resource="&MD;CapacityMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">We express usage as a fraction of the overall capacity.
+   Util(L,T,I) = ( Used(L,T,I) / C(L,T,I) ) 
+   Thus, the utilization now represents the fraction of the capacity  that is being used and is a Value between zero (meaning nothing is used) and one (meaning the link is fully saturated).  Multiplying the utilization by 100 yields the percent utilization of the link</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://www.rfc-editor.org/rfc/rfc5136.txt</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#LocalPref -->
+
+    <owl:Class rdf:about="&MD;LocalPref">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">LOCAL_PREF is a well-known attribute that SHALL be included in all
+   UPDATE messages that a given BGP speaker sends to the other internal
+   peers</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://tools.ietf.org/html/draft-ietf-idr-bgp4-21#section-5.1.5</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#LongitudeCoordinate -->
+
+    <owl:Class rdf:about="&MD;LongitudeCoordinate">
+        <rdfs:subClassOf rdf:resource="&MD;NodeInformation"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Longitude coordinate where is  the object.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MOSMeasurement -->
+
+    <owl:Class rdf:about="&MD;MOSMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">MOS (Mean Opinion Score) provides a numerical measure of the quality of human speech at the destination end of the circuit.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MP_Reach -->
+
+    <owl:Class rdf:about="&MD;MP_Reach">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">MP_REACH is an optional non-transitive attribute that can be used for the following purposes:
+
+      (a) to advertise a feasible route to a peer
+
+      (b) to permit a router to advertise the Network Layer address of the router that should be used as the next hop to the destinations listed in the Network Layer Reachability Information field of the MP_NLRI attribute.
+
+      (c) to allow a given router to report some or all of the Subnetwork Points of Attachment (SNPAs) that exist within the local system</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://ietfreport.isoc.org/idref/rfc2283/</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MP_Unreach -->
+
+    <owl:Class rdf:about="&MD;MP_Unreach">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">This is an optional non-transitive attribute that can be used for the
+   purpose of withdrawing multiple unfeasible routes from service.</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://ietfreport.isoc.org/idref/rfc2283/</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MRTGMeasurement -->
+
+    <owl:Class rdf:about="&MD;MRTGMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;Measurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;MaxMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;NetworkName"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;ExporterName"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;CentreName"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;VarMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;SamplingRate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">MRTG (Multi Router Traffic Grapher) data measured on the acadic Spanish network RedIris.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MaxMeasurement -->
+
+    <owl:Class rdf:about="&MD;MaxMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;StatisticalMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Maximum Value from a statistacal measurement.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MeanMeasurement -->
+
+    <owl:Class rdf:about="&MD;MeanMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;StatisticalMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">mean Value from a statistacal measurement.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Measurement -->
+
+    <owl:Class rdf:about="&MD;Measurement">
+        <rdfs:comment rdf:datatype="&xsd;string">Measurement is the class to represent network measurements. A network meausurement may measure multiple metric, like traceroute that meausures route and delay.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MeasurementData -->
+
+    <owl:Class rdf:about="&MD;MeasurementData">
+        <rdfs:comment rdf:datatype="&xsd;string">MeasurementData represents individual results of a measurement. As the ontology is designed to work with D2R it also represents different columns of the database</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MeasurementParameters -->
+
+    <owl:Class rdf:about="&MD;MeasurementParameters">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementData"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Parameters for measurements</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MessageType -->
+
+    <owl:Class rdf:about="&MD;MessageType">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementParameters"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Message type inidactes the type of a message, like BGP4MP in withdrawn routes of RIPE</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Metric -->
+
+    <owl:Class rdf:about="&MD;Metric">
+        <rdfs:comment rdf:datatype="&xsd;string">Metric indivuals represent the thing that is being measuring, and all the differents Values that are necessary to obtain, when the metric is being measuring.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MinMeasurement -->
+
+    <owl:Class rdf:about="&MD;MinMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;StatisticalMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">minimum Value from a statistacal measurement.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MultiExit -->
+
+    <owl:Class rdf:about="&MD;MultiExit">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The MULTI_EXIT_DISC is an optional non-transitive attribute which is
+   intended to be used on external (inter-AS) links to discriminate
+   among multiple exit or entry points to the same neighboring AS</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://tools.ietf.org/html/draft-ietf-idr-bgp4-21#section-5.1.4</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NTP_GPS_Measurement -->
+
+    <owl:Class rdf:about="&MD;NTP_GPS_Measurement">
+        <rdfs:subClassOf rdf:resource="&MD;Measurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMetricAttributes"/>
+                <owl:someValuesFrom rdf:resource="&MD;PpsOffset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMetricAttributes"/>
+                <owl:someValuesFrom rdf:resource="&MD;SatelliteCountMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMetricAttributes"/>
+                <owl:someValuesFrom rdf:resource="&MD;SourceIP"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMetricAttributes"/>
+                <owl:someValuesFrom rdf:resource="&MD;DagOffset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">NTP and GPS measurements sone in every node of the ETOMIC system</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NetworkName -->
+
+    <owl:Class rdf:about="&MD;NetworkName">
+        <rdfs:subClassOf rdf:resource="&MD;GeneralInformation"/>
+        <rdfs:comment rdf:datatype="&xsd;string">name of the network where is being measuring.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NetworkNode -->
+
+    <owl:Class rdf:about="&MD;NetworkNode">
+        <rdfs:subClassOf rdf:resource="&MD;NetworkObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;NodeMacAddress"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;NodeIP"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;NodePort"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;NodeName"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">A point on the network where communications lines interface.
+ To describe complex nodes such as routers the interface property will represent the multiple connections the node has and how they are interconected together</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NetworkObject -->
+
+    <owl:Class rdf:about="&MD;NetworkObject">
+        <rdfs:subClassOf rdf:resource="&MD;Measurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;Status"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">A object of a Network</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NextHop -->
+
+    <owl:Class rdf:about="&MD;NextHop">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The NEXT_HOP is a well-known mandatory attribute that defines the IP address of the router that SHOULD be used as the next hop to the destinations listed in the UPDATE message</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://tools.ietf.org/html/draft-ietf-idr-bgp4-21#section-5.1.3</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NlriIp -->
+
+    <owl:Class rdf:about="&MD;NlriIp">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Network Layer Reachability information IP address</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NlriMask -->
+
+    <owl:Class rdf:about="&MD;NlriMask">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Network Layer Reachability Information subnet IP mask</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NodeIP -->
+
+    <owl:Class rdf:about="&MD;NodeIP">
+        <rdfs:subClassOf rdf:resource="&MD;AddressMeasurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;defaultUnit"/>
+                <owl:hasValue rdf:resource="&MomentUnits;ipv4int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">IP address of the node</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NodeInformation -->
+
+    <owl:Class rdf:about="&MD;NodeInformation">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementData"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Information about a node or a path of the network.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NodeMacAddress -->
+
+    <owl:Class rdf:about="&MD;NodeMacAddress">
+        <rdfs:subClassOf rdf:resource="&MD;AddressMeasurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;defaultUnit"/>
+                <owl:hasValue rdf:resource="&MomentUnits;hexadecimalMAC"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">MAC address of the node.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NodeName -->
+
+    <owl:Class rdf:about="&MD;NodeName">
+        <rdfs:subClassOf rdf:resource="&MD;NodeInformation"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Name or direction of the node</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NodePort -->
+
+    <owl:Class rdf:about="&MD;NodePort">
+        <rdfs:subClassOf rdf:resource="&MD;NodeInformation"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Port used for the measurement in the Node.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#OneWayDelayMeasurement -->
+
+    <owl:Class rdf:about="&MD;OneWayDelayMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;DelayMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A measurement of the time required to traverse one direction between two nodes.
+
+RFC2679 defines a &quot;A One-way Delay Metric for IPPM&quot; in Section 3.4 as follows:
+   For a real number dT, &gt;&gt;the *Type-P-One-way-Delay* from Src to Dst at
+   T is dT&lt;&lt; means that Src sent the first bit of a Type-P packet to Dst
+   at wire-time* T and that Dst received the last bit of that packet at
+   wire-time T+dT.
+
+   &gt;&gt;The *Type-P-One-way-Delay* from Src to Dst at T is undefined
+   (informally, infinite)&lt;&lt; means that Src sent the first bit of a
+   Type-P packet to Dst at wire-time T and that Dst did not receive that
+   packet.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;string">RFC2679</rdfs:isDefinedBy>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://www.ietf.org/rfc/rfc2679.txt</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Origin -->
+
+    <owl:Class rdf:about="&MD;Origin">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">ORIGIN is a well-known mandatory attribute. The ORIGIN attribute is
+   generated by the speaker that originates the associated routing
+   information</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://tools.ietf.org/html/draft-ietf-idr-bgp4-21#section-5.1.1</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#OriginatorID -->
+
+    <owl:Class rdf:about="&MD;OriginatorID">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">ORIGINATOR_ID is a new optional, non-transitive BGP attribute of Type code 9.   This attribute will carry the BGP Identifier of the originator of the route in the local AS</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://www.rfc-editor.org/rfc/rfc4456.txt</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#OutgoingTransferRateMeasurement -->
+
+    <owl:Class rdf:about="&MD;OutgoingTransferRateMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;TransferRateMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Average data infomation  that has as source node the node that is being measured per unit of time.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#P00Parameter -->
+
+    <owl:Class rdf:about="&MD;P00Parameter">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementParameters"/>
+        <rdfs:comment rdf:datatype="&xsd;string">StartValue for Kalman filter parameter P00</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#P11Parameter -->
+
+    <owl:Class rdf:about="&MD;P11Parameter">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementParameters"/>
+        <rdfs:comment rdf:datatype="&xsd;string">StartValue for Kalman filter parameter P11</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PacketAndTrainProperties -->
+
+    <owl:Class rdf:about="&MD;PacketAndTrainProperties">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementParameters"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A packet is a formatted block of data carried over a network.
+A train is a collection of packets.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PacketIdentifier -->
+
+    <owl:Class rdf:about="&MD;PacketIdentifier">
+        <rdfs:subClassOf rdf:resource="&MD;PacketAndTrainProperties"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Unique identifier of the packet.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PacketLossMeasurement -->
+
+    <owl:Class rdf:about="&MD;PacketLossMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Percentage of losing packets along the data path.</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://www.ietf.org/rfc/rfc3357.txt</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PacketSize -->
+
+    <owl:Class rdf:about="&MD;PacketSize">
+        <rdfs:subClassOf rdf:resource="&MD;PacketAndTrainProperties"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Size of the packet</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PacketsCount -->
+
+    <owl:Class rdf:about="&MD;PacketsCount">
+        <rdfs:subClassOf rdf:resource="&MD;PacketAndTrainProperties"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Number of packet in a train.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PassiveAnomal -->
+
+    <owl:Class rdf:about="&MD;PassiveAnomal">
+        <rdfs:subClassOf rdf:resource="&MD;Measurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Passive anomal represents pieces of captured traffic which contains anomal data</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://ggf.org/ns/nmwg/tools/passiveanomal/2.0/</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Path -->
+
+    <owl:Class rdf:about="&MD;Path">
+        <rdfs:subClassOf rdf:resource="&MD;NetworkObject"/>
+        <owl:disjointWith rdf:resource="&MD;Topology"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A Path or a Segment in a network is a set of ordered Nodes connected through communication Link
+.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PathCapacityMeasurement -->
+
+    <owl:Class rdf:about="&MD;PathCapacityMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;CapacityMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The path capacity of a determinate protocol is the smallest link capacity (&quot;narrow link&quot;) of the links that make up the path.
+We define the  link capacity, C(L,T,I), to be the maximum number of bits of a determinate protocol that can be transmitted from the source and correctly received by the destination over the link L during the interval [T, T+I], divided by I.</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://www.rfc-editor.org/rfc/rfc5136.txt</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PauseParameter -->
+
+    <owl:Class rdf:about="&MD;PauseParameter">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementParameters"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Time between differents measurements</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PeerAs -->
+
+    <owl:Class rdf:about="&MD;PeerAs">
+        <rdfs:subClassOf rdf:resource="&MD;BGPAttributes"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Autonomous system number of a peer</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Ping -->
+
+    <owl:Class rdf:about="&MD;Ping">
+        <rdfs:subClassOf rdf:resource="&MD;Measurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMetricAttributes"/>
+                <owl:someValuesFrom rdf:resource="&MD;FinalTtlMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMetricAttributes"/>
+                <owl:someValuesFrom rdf:resource="&MD;PacketSize"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMetricAttributes"/>
+                <owl:someValuesFrom rdf:resource="&MD;PacketLossMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMetricAttributes"/>
+                <owl:someValuesFrom rdf:resource="&MD;DestinationIP"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMetricAttributes"/>
+                <owl:someValuesFrom rdf:resource="&MD;RoundTripDelayMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMetricAttributes"/>
+                <owl:someValuesFrom rdf:resource="&MD;Arguments"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMetricAttributes"/>
+                <owl:someValuesFrom rdf:resource="&MD;SourceIP"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMetricAttributes"/>
+                <owl:someValuesFrom rdf:resource="&MD;FirstTtlMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Network tool that measures round-trip time and packet loss sending ICMP &quot;echo-request&quot; packets and listening for ICMP &quot;echo-response&quot; replies.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://ggf.org/ns/nmwg/tools/ping/2.0/</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PingER -->
+
+    <owl:Class rdf:about="&MD;PingER">
+        <rdfs:subClassOf rdf:resource="&MD;Ping"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A device that periodically emits a signal that can be monitored to permit movement tracking.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://ggf.org/ns/nmwg/tools/pinger/2.0</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PpsOffset -->
+
+    <owl:Class rdf:about="&MD;PpsOffset">
+        <rdfs:subClassOf rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;defaultUnit"/>
+                <owl:hasValue rdf:resource="&MomentUnits;second"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Offset between PPS signal from GPS and NTP clock.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ProbeRateMeasurement -->
+
+    <owl:Class rdf:about="&MD;ProbeRateMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Probe rate for the train.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Proxy -->
+
+    <owl:Class rdf:about="&MD;Proxy">
+        <rdfs:subClassOf rdf:resource="&MD;NetworkObject"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A server  that acts as a go-between for requests from clients seeking resources from other servers.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#QueryNumberParameter -->
+
+    <owl:Class rdf:about="&MD;QueryNumberParameter">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementParameters"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Number of times to send a query for a given hop</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#RoundTripDelayMeasurement -->
+
+    <owl:Class rdf:about="&MD;RoundTripDelayMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;DelayMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">INFORMALLY: Time it takes for a packet to reach from a sourceNode to a destinationNode and back again.
+
+RFC2681 defines a &quot;Round-trip Delay Metric for IPPM&quot; in Section 2.4 as follows:
+   For a real number dT, &gt;&gt;the *Type-P-Round-trip-Delay* from Src to Dst
+   at T is dT&lt;&lt; means that Src sent the first bit of a Type-P packet to
+   Dst at wire-time* T, that Dst received that packet, then immediately
+   sent a Type-P packet back to Src, and that Src received the last bit
+   of that packet at wire-time T+dT.
+
+   &gt;&gt;The *Type-P-Round-trip-Delay* from Src to Dst at T is undefined
+   (informally, infinite)&lt;&lt; means that Src sent the first bit of a
+   Type-P packet to Dst at wire-time T and that (either Dst did not
+   receive the packet, Dst did not send a Type-P packet in response, or)
+   Src did not receive that response packet.
+
+   &gt;&gt;The *Type-P-Round-trip-Delay between Src and Dst at T&lt;&lt; means
+   either the *Type-P-Round-trip-Delay from Src to Dst at T or the
+   *Type-P-Round-trip-Delay from Dst to Src at T.  When this notion is
+   used, it is understood to be specifically ambiguous which host acts
+   as Src and which as Dst.  {Comment: This ambiguity will usually be a
+   small price to pay for being able to have one measurement, launched
+   from either Src or Dst, rather than having two measurements.}</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;string">RFC2681</rdfs:isDefinedBy>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://www.ietf.org/rfc/rfc2681.txt</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SNMP -->
+
+    <owl:Class rdf:about="&MD;SNMP">
+        <rdfs:subClassOf rdf:resource="&MD;Measurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">SNMP (Simple Network Management Protocol) information</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://ggf.org/ns/nmwg/tools/snmp/2.0</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SamplingRate -->
+
+    <owl:Class rdf:about="&MD;SamplingRate">
+        <rdfs:subClassOf rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">defines the number of samples per second (or per other unit) taken from a continuous signal to make a discrete signal</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SatelliteCountMeasurement -->
+
+    <owl:Class rdf:about="&MD;SatelliteCountMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Number of Satellites seen by the GPS at the moment of the measurement.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SequenceIndex -->
+
+    <owl:Class rdf:about="&MD;SequenceIndex">
+        <rdfs:subClassOf rdf:resource="&MD;GeneralInformation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SimpleMeasurement -->
+
+    <owl:Class rdf:about="&MD;SimpleMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementData"/>
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SourceIP -->
+
+    <owl:Class rdf:about="&MD;SourceIP">
+        <rdfs:subClassOf rdf:resource="&MD;NodeIP"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;defaultUnit"/>
+                <owl:hasValue rdf:resource="&MomentUnits;ipv4int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">IP address of the source node</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SourceMacAddress -->
+
+    <owl:Class rdf:about="&MD;SourceMacAddress">
+        <rdfs:subClassOf rdf:resource="&MD;NodeMacAddress"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;defaultUnit"/>
+                <owl:hasValue rdf:resource="&MomentUnits;hexadecimalMAC"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Mac address of the source node</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SourceName -->
+
+    <owl:Class rdf:about="&MD;SourceName">
+        <rdfs:subClassOf rdf:resource="&MD;NodeName"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Name or direction of the source node</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SourcePort -->
+
+    <owl:Class rdf:about="&MD;SourcePort">
+        <rdfs:subClassOf rdf:resource="&MD;NodePort"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Number of port of the source node.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#StandardDeviationMeasurement -->
+
+    <owl:Class rdf:about="&MD;StandardDeviationMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;StatisticalMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The standard deviation of the statistical measurement</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#StatisticalAnalysis -->
+
+    <owl:Class rdf:about="&MD;StatisticalAnalysis">
+        <rdfs:subClassOf rdf:resource="&MD;Measurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMetricAttributes"/>
+                <owl:someValuesFrom rdf:resource="&MD;StatisticalMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Statistical measurements are statistical results derivated from network measurements.
+hasMetricAttributes contains the result of the statistical analysis (ie mean Value) and measurementsAnalyzed contains the set of data from where the results are computed.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#StatisticalMeasurement -->
+
+    <owl:Class rdf:about="&MD;StatisticalMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementData"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Results from statistical analysis.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Status -->
+
+    <owl:Class rdf:about="&MD;Status">
+        <rdfs:subClassOf rdf:resource="&MD;NodeInformation"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Special status of a node</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Time -->
+
+    <owl:Class rdf:about="&MD;Time">
+        <rdfs:subClassOf rdf:resource="&MD;GeneralInformation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ToolParameters -->
+
+    <owl:Class rdf:about="&MD;ToolParameters">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementParameters"/>
+        <rdfs:comment rdf:datatype="&xsd;string">The tool used to do the measurement.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ToolVersion -->
+
+    <owl:Class rdf:about="&MD;ToolVersion">
+        <rdfs:subClassOf rdf:resource="&MD;ToolParameters"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Version of the tool</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Topology -->
+
+    <owl:Class rdf:about="&MD;Topology">
+        <rdfs:subClassOf rdf:resource="&MD;NetworkObject"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Arrangement or mapping of the elements of a network.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Traceroute -->
+
+    <owl:Class rdf:about="&MD;Traceroute">
+        <rdfs:subClassOf rdf:resource="&MD;Measurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;RoundTripDelayMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;QueryNumberParameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;FinalTtlMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;DestinationIP"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;HopCountMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;SourceIP"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;FirstTtlMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;PauseParameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;WaitTimeParameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Traceroute is a network measurement tool to obtain the path between two nodes in a network and the (one way) delay.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="&xsd;anyURI">http://ggf.org/ns/nmwg/tools/traceroute/2.0/</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#TrafficMeasurement -->
+
+    <owl:Class rdf:about="&MD;TrafficMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;Measurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;OutgoingTransferRateMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;IncomingTransferRateMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Measures incoming and outgoing traffic.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#TrainIdentifier -->
+
+    <owl:Class rdf:about="&MD;TrainIdentifier">
+        <rdfs:subClassOf rdf:resource="&MD;PacketAndTrainProperties"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Unique identifier of the train that the packet form part</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#TrainPacketMeasurement -->
+
+    <owl:Class rdf:about="&MD;TrainPacketMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;Measurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;PacketsCount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;PacketIdentifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;PacketSize"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;AvailableCapacityMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;VarMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;TrainIdentifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;MaxMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;MinMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="&MD;PathCapacityMeasurement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Obtain available bandwidth and one way delay using packet train information.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#TransferRateMeasurement -->
+
+    <owl:Class rdf:about="&MD;TransferRateMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&MD;defaultUnit"/>
+                <owl:hasValue rdf:resource="&MomentUnits;bitpersec"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">The measurement that measured the data infomation  that send or recived  the node that is being measured.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#Type -->
+
+    <owl:Class rdf:about="&MD;Type">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementParameters"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#VarMeasurement -->
+
+    <owl:Class rdf:about="&MD;VarMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;StatisticalMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">variance from a statistacal measurement.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#WaitTimeParameter -->
+
+    <owl:Class rdf:about="&MD;WaitTimeParameter">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementParameters"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Maximum time to wait for reply.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#X00Parameter -->
+
+    <owl:Class rdf:about="&MD;X00Parameter">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementParameters"/>
+        <rdfs:comment rdf:datatype="&xsd;string">StartValue for Kalman filter parameter x00</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#X11Parameter -->
+
+    <owl:Class rdf:about="&MD;X11Parameter">
+        <rdfs:subClassOf rdf:resource="&MD;MeasurementParameters"/>
+        <rdfs:comment rdf:datatype="&xsd;string">StartValue for Kalman filter parameter X11</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#isTTLconstMeasurement -->
+
+    <owl:Class rdf:about="&MD;isTTLconstMeasurement">
+        <rdfs:subClassOf rdf:resource="&MD;SimpleMeasurement"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Boolean measurement indicating if the TTLwas constant during the measurement.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentGeneralConcepts.owl#Protocol -->
+
+    <owl:Class rdf:about="&MomentGeneralConcepts;Protocol"/>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentGeneralConcepts.owl#Timestamp -->
+
+    <owl:Class rdf:about="&MomentGeneralConcepts;Timestamp"/>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentUnits.owl#Unit -->
+
+    <owl:Class rdf:about="&MomentUnits;Unit"/>
+    
+
+
+    <!-- http://www.fp7-moment.eu/Units.owl/#Unit -->
+
+    <owl:Class rdf:about="&Units;Unit"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing">
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#AvailableBandwidthMetric -->
+
+    <owl:Thing rdf:about="&MD;AvailableBandwidthMetric">
+        <rdf:type rdf:resource="&MD;Metric"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label rdf:datatype="&xsd;string">AvailableBandwidth</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Bandwidth that is not use.</rdfs:comment>
+        <hasMetricAttributes rdf:resource="&MD;AvailableCapacityMeasurement"/>
+        <hasMetricAttributes rdf:resource="&MD;SourceIP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#AvailableCapacityMeasurement -->
+
+    <owl:Thing rdf:about="&MD;AvailableCapacityMeasurement">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DelayVariationMeasurement -->
+
+    <owl:Thing rdf:about="&MD;DelayVariationMeasurement">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DelayVariationMetric -->
+
+    <owl:Thing rdf:about="&MD;DelayVariationMetric">
+        <rdf:type rdf:resource="&MD;Metric"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label rdf:datatype="&xsd;string">DelayVariation</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The variability over time of the packet latency across a network.</rdfs:comment>
+        <hasMetricAttributes rdf:resource="&MD;DelayVariationMeasurement"/>
+        <hasMetricAttributes rdf:resource="&MD;DestinationIP"/>
+        <canBeCalculatedFrom rdf:resource="&MD;OneWayDelayMetric"/>
+        <canBeCalculatedFrom rdf:resource="&MD;RoundTripDelayMetric"/>
+        <hasMetricAttributes rdf:resource="&MD;SourceIP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DestinationIP -->
+
+    <owl:Thing rdf:about="&MD;DestinationIP">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DestinationMacAddress -->
+
+    <owl:Thing rdf:about="&MD;DestinationMacAddress">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ErrorMetric -->
+
+    <owl:Thing rdf:about="&MD;ErrorMetric">
+        <rdf:type rdf:resource="&MD;Metric"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <hasMetricAttributes rdf:resource="&MD;ErrorsRate"/>
+        <hasMetricAttributes rdf:resource="&MD;NodeIp"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ErrorsRate -->
+
+    <owl:Thing rdf:about="&MD;ErrorsRate">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#FinalTtlMeasurement -->
+
+    <owl:Thing rdf:about="&MD;FinalTtlMeasurement">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#FirstTtlMeasurement -->
+
+    <owl:Thing rdf:about="&MD;FirstTtlMeasurement">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#HopCountMeasurement -->
+
+    <owl:Thing rdf:about="&MD;HopCountMeasurement">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#HopMetric -->
+
+    <owl:Thing rdf:about="&MD;HopMetric">
+        <rdf:type rdf:resource="&MD;Metric"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label rdf:datatype="&xsd;string">HopMetric</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Two neighboring nodes</rdfs:comment>
+        <hasMetricAttributes rdf:resource="&MD;DestinationIP"/>
+        <hasMetricAttributes rdf:resource="&MD;DestinationMacAddress"/>
+        <hasMetricAttributes rdf:resource="&MD;SourceIP"/>
+        <hasMetricAttributes rdf:resource="&MD;SourceMacAddress"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#LinkUsageMeasurement -->
+
+    <owl:Thing rdf:about="&MD;LinkUsageMeasurement">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MOSMeasurement -->
+
+    <owl:Thing rdf:about="&MD;MOSMeasurement">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#MOSMetric -->
+
+    <owl:Thing rdf:about="&MD;MOSMetric">
+        <rdf:type rdf:resource="&MD;Metric"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label rdf:datatype="&xsd;string">MOS</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">MOS (Mean Opinion Score) provides a numerical measure of the quality of human speech at the destination end of the circuit.</rdfs:comment>
+        <hasMetricAttributes rdf:resource="&MD;DestinationIP"/>
+        <hasMetricAttributes rdf:resource="&MD;MOSMeasurement"/>
+        <hasMetricAttributes rdf:resource="&MD;SourceIP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#NodeIp -->
+
+    <owl:Thing rdf:about="&MD;NodeIp">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#OneWayDelayMeasurement -->
+
+    <owl:Thing rdf:about="&MD;OneWayDelayMeasurement">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#OneWayDelayMetric -->
+
+    <owl:Thing rdf:about="&MD;OneWayDelayMetric">
+        <rdf:type rdf:resource="&MD;Metric"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label rdf:datatype="&xsd;string">OneTripDelay</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Time it takes for a packet to reach from the sourceNode to the destinationNode.</rdfs:comment>
+        <canBeCalculatedFrom rdf:resource="&MD;DelayVariationMetric"/>
+        <hasMetricAttributes rdf:resource="&MD;DestinationIP"/>
+        <hasMetricAttributes rdf:resource="&MD;OneWayDelayMeasurement"/>
+        <hasMetricAttributes rdf:resource="&MD;SourceIP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PacketLossMeasurement -->
+
+    <owl:Thing rdf:about="&MD;PacketLossMeasurement">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PacketLossMetric -->
+
+    <owl:Thing rdf:about="&MD;PacketLossMetric">
+        <rdf:type rdf:resource="&MD;Metric"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label rdf:datatype="&xsd;string">PacketLoss</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Percentage of losing packets along the data path.</rdfs:comment>
+        <hasMetricAttributes rdf:resource="&MD;DestinationIP"/>
+        <hasMetricAttributes rdf:resource="&MD;PacketLossMeasurement"/>
+        <hasMetricAttributes rdf:resource="&MD;SourceIP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PathCapacityMeasurement -->
+
+    <owl:Thing rdf:about="&MD;PathCapacityMeasurement">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#PathCapacityMetric -->
+
+    <owl:Thing rdf:about="&MD;PathCapacityMetric">
+        <rdf:type rdf:resource="&MD;Metric"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label rdf:datatype="&xsd;string">Capacity</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">The path capacity of a determinate protocol is the smallest link capacity of the links that make up the path.
+We define the  link capacity, C(L,T,I), to be the maximum number of bits of a determinate protocol that can be transmitted from the source and correctly received by the destination over the link L during the interval [T, T+I], divided by I.</rdfs:comment>
+        <hasMetricAttributes rdf:resource="&MD;DestinationIP"/>
+        <hasMetricAttributes rdf:resource="&MD;PathCapacityMeasurement"/>
+        <hasMetricAttributes rdf:resource="&MD;SourceIP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#RoundTripDelayMeasurement -->
+
+    <owl:Thing rdf:about="&MD;RoundTripDelayMeasurement">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#RoundTripDelayMetric -->
+
+    <owl:Thing rdf:about="&MD;RoundTripDelayMetric">
+        <rdf:type rdf:resource="&MD;Metric"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label rdf:datatype="&xsd;string">RoundTripDelay</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Time it takes for a packet to reach from a sourceNode to a destinationNode and back again.</rdfs:comment>
+        <canBeCalculatedFrom rdf:resource="&MD;DelayVariationMetric"/>
+        <hasMetricAttributes rdf:resource="&MD;DestinationIP"/>
+        <hasMetricAttributes rdf:resource="&MD;RoundTripDelayMeasurement"/>
+        <hasMetricAttributes rdf:resource="&MD;SourceIP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#RouteMetric -->
+
+    <owl:Thing rdf:about="&MD;RouteMetric">
+        <rdf:type rdf:resource="&MD;Metric"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label rdf:datatype="&xsd;string">Route</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Path that follows a package from the source node to the destination node</rdfs:comment>
+        <hasMetricAttributes rdf:resource="&MD;DestinationIP"/>
+        <hasMetricAttributes rdf:resource="&MD;DestinationMacAddress"/>
+        <hasMetricAttributes rdf:resource="&MD;FinalTtlMeasurement"/>
+        <hasMetricAttributes rdf:resource="&MD;FirstTtlMeasurement"/>
+        <hasMetricAttributes rdf:resource="&MD;HopCountMeasurement"/>
+        <canBeCalculatedFrom rdf:resource="&MD;HopMetric"/>
+        <hasMetricAttributes rdf:resource="&MD;SourceIP"/>
+        <hasMetricAttributes rdf:resource="&MD;SourceMacAddress"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SourceIP -->
+
+    <owl:Thing rdf:about="&MD;SourceIP">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SourceMacAddress -->
+
+    <owl:Thing rdf:about="&MD;SourceMacAddress">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#ThroughputMetric -->
+
+    <owl:Thing rdf:about="&MD;ThroughputMetric">
+        <rdf:type rdf:resource="&MD;Metric"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label rdf:datatype="&xsd;string">Troughput</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Average rate of successful message delivery over a net conection</rdfs:comment>
+        <hasMetricAttributes rdf:resource="&MD;DestinationIP"/>
+        <hasMetricAttributes rdf:resource="&MD;LinkUsageMeasurement"/>
+        <hasMetricAttributes rdf:resource="&MD;SourceIP"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentUnits.owl#bitpersec -->
+
+    <owl:Thing rdf:about="&MomentUnits;bitpersec"/>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentUnits.owl#hexadecimalMAC -->
+
+    <owl:Thing rdf:about="&MomentUnits;hexadecimalMAC"/>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentUnits.owl#ipv4int -->
+
+    <owl:Thing rdf:about="&MomentUnits;ipv4int"/>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentUnits.owl#second -->
+
+    <owl:Thing rdf:about="&MomentUnits;second"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Thing rdf:about="&owl;Thing">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

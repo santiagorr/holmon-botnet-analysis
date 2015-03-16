@@ -1,0 +1,9 @@
+Document: libfixbuf
+Title: libfixbuf manual
+Author: Brian Trammell
+Abstract: Manual for libfixbuf
+Section: Network/Monitoring
+
+Format: HTML
+Index: /usr/share/doc/libfixbuf3-doc/html/index.html
+Files: /usr/share/doc/libfixbuf3-doc/html/*.html

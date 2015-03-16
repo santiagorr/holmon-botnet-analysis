@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ --with autoreconf
+
+override_dh_clean:
+	dh_clean
+	rm -f config.log
+
+override_dh_auto_build-indep:
+	$(MAKE) docs
+
+override_dh_auto_install-indep:
+	cp -pr doc/html/libfixbuf debian/libfixbuf3-doc/usr/share/doc/libfixbuf3-doc/html
+
+override_dh_installchangelogs:
+	dh_installchangelogs NEWS
+
+override_dh_install:
+	sed -i -e'/dependency_libs/s/'.*'//' debian/tmp/usr/lib/*/libfixbuf.la
+	dh_install --fail-missing

@@ -1,0 +1,40 @@
+libfixbuf (1.6.0+ds-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Johannes Schauer <j.schauer@email.de>  Sat, 04 Oct 2014 15:56:58 +0200
+
+libfixbuf (1.5.0+ds-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Johannes Schauer <j.schauer@email.de>  Tue, 08 Jul 2014 07:15:21 +0200
+
+libfixbuf (1.4.0+ds-3) unstable; urgency=medium
+
+  * Include upstream pkgconfig in libfixbuf2-dev (Closes: #744764)
+  * Switch to dh-autoreconf (Closes: #745973)
+  * add --fail-missing to dh_install invocation
+
+ -- Johannes Schauer <j.schauer@email.de>  Mon, 28 Apr 2014 10:42:15 +0200
+
+libfixbuf (1.4.0+ds-2) unstable; urgency=medium
+
+  * fix debian/copyright
+
+ -- Johannes Schauer <j.schauer@email.de>  Tue, 25 Feb 2014 08:58:28 +0100
+
+libfixbuf (1.4.0+ds-1) unstable; urgency=medium
+
+  * add debian/watch
+  * repack upstream tarball using debian/repack.sh
+      - remove tarball containing python bindings
+      - remove generated docs
+
+ -- Johannes Schauer <j.schauer@email.de>  Tue, 14 Jan 2014 13:39:35 +0100
+
+libfixbuf (1.4.0-1) unstable; urgency=medium
+
+  * Initial release. (Closes: #733518)
+
+ -- Johannes Schauer <j.schauer@email.de>  Sun, 29 Dec 2013 12:47:22 +0100

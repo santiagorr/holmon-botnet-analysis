@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:MO="http://www.fp7-moment.eu/Moment.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:MD="http://www.fp7-moment.eu/MomentDataV2.owl#"
+    xmlns:nasaunits="http://sweet.jpl.nasa.gov/ontology/units.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:MG="http://www.fp7-moment.eu/MomentGeneralConcepts.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.fp7-moment.eu/Moment.owl">
+  <owl:Ontology rdf:about="">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An ontology that import all MOMENT ontologies</rdfs:comment>
+    <owl:imports rdf:resource="http://www.fp7-moment.eu/MomentMetadata.owl"/>
+    <owl:imports rdf:resource="http://www.fp7-moment.eu/MomentGeneralConcepts.owl"/>
+    <owl:imports rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl"/>
+  </owl:Ontology>
+  <rdfs:Class rdf:about="http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#PropertyBridge"/>
+  <owl:AllDisjointClasses/>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.4, Build 579)  http://protege.stanford.edu -->

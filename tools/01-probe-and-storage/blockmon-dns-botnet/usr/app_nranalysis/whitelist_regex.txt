@@ -1,0 +1,4 @@
+^[\w\.]+\.nyud\.net$
+\w*\.googlemail\.com$
+^time\.mk\.cc$
+^cf\.www\.directadserver\.com$

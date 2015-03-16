@@ -1,0 +1,1055 @@
+# mapping IPFIX flows DB
+
+@prefix map: <#> .
+@prefix db: <> .
+@prefix holmonflows: <holmonflows/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix jdbc: <http://d2rq.org/terms/jdbc/> .
+@prefix holmon: <file:////home/santiago/research/PostDoc-AllInOne/botnet-dns-ipfix-scenario/holmon-1.owl> .
+@prefix MD: <http://www.fp7-moment.eu/Moment.owl> .
+
+map:database a d2rq:Database;
+	d2rq:jdbcDriver "com.mysql.jdbc.Driver";
+	d2rq:jdbcDSN "jdbc:mysql:///holmonflows";
+	d2rq:username "holmon";
+	d2rq:password "holmon";
+	jdbc:autoReconnect "true";
+	jdbc:zeroDateTimeBehavior "convertToNull";
+	.
+
+# Table dhcp
+map:dhcp a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "dhcp" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "dhcp";
+	d2rq:class holmonflows:dhcp;
+	d2rq:classDefinitionLabel "dhcp";
+	.
+map:dhcp_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dhcp;
+	d2rq:property holmonflows:dhcp_id;
+	d2rq:propertyDefinitionLabel "dhcp id";
+	d2rq:column "dhcp.id";
+	d2rq:datatype xsd:integer;
+	.
+map:dhcp_os a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dhcp;
+	d2rq:property holmonflows:dhcp_os;
+	d2rq:propertyDefinitionLabel "dhcp os";
+	d2rq:column "dhcp.os";
+	.
+map:dhcp_vc a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dhcp;
+	d2rq:property holmonflows:dhcp_vc;
+	d2rq:propertyDefinitionLabel "dhcp vc";
+	d2rq:column "dhcp.vc";
+	.
+map:dhcp_ros a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dhcp;
+	d2rq:property holmonflows:dhcp_ros;
+	d2rq:propertyDefinitionLabel "dhcp ros";
+	d2rq:column "dhcp.ros";
+	.
+map:dhcp_rvc a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dhcp;
+	d2rq:property holmonflows:dhcp_rvc;
+	d2rq:propertyDefinitionLabel "dhcp rvc";
+	d2rq:column "dhcp.rvc";
+	.
+
+# Table dns
+map:dns a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "dns" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "dns";
+	d2rq:class holmonflows:dns;
+	d2rq:classDefinitionLabel "dns";
+	.
+map:dns_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dns;
+	d2rq:property holmonflows:dns_id;
+	d2rq:propertyDefinitionLabel "dns id";
+	d2rq:column "dns.id";
+	d2rq:datatype xsd:integer;
+	.
+map:dns_tid a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dns;
+	d2rq:property holmonflows:dns_tid;
+	d2rq:propertyDefinitionLabel "dns tid";
+	d2rq:column "dns.tid";
+	d2rq:datatype xsd:integer;
+	.
+map:dns_qr a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dns;
+	d2rq:property holmonflows:dns_qr;
+	d2rq:propertyDefinitionLabel "dns qr";
+	d2rq:column "dns.qr";
+	d2rq:datatype xsd:integer;
+	.
+map:dns_type a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dns;
+	d2rq:property holmonflows:dns_type;
+	d2rq:propertyDefinitionLabel "dns type";
+	d2rq:column "dns.type";
+	d2rq:datatype xsd:integer;
+	.
+map:dns_auth a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dns;
+	d2rq:property holmonflows:dns_auth;
+	d2rq:propertyDefinitionLabel "dns auth";
+	d2rq:column "dns.auth";
+	d2rq:datatype xsd:integer;
+	.
+map:dns_nx a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dns;
+	d2rq:property holmonflows:dns_nx;
+	d2rq:propertyDefinitionLabel "dns nx";
+	d2rq:column "dns.nx";
+	d2rq:datatype xsd:integer;
+	.
+map:dns_section a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dns;
+	d2rq:property holmonflows:dns_section;
+	d2rq:propertyDefinitionLabel "dns section";
+	d2rq:column "dns.section";
+	d2rq:datatype xsd:integer;
+	.
+map:dns_ttl a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dns;
+	d2rq:property holmonflows:dns_ttl;
+	d2rq:propertyDefinitionLabel "dns ttl";
+	d2rq:column "dns.ttl";
+	d2rq:datatype xsd:integer;
+	.
+map:dns_rrname a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dns;
+	d2rq:property holmonflows:dns_rrname;
+	d2rq:propertyDefinitionLabel "dns rrname";
+	d2rq:column "dns.rrname";
+	.
+map:dns_rrval a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dns;
+	d2rq:property holmonflows:dns_rrval;
+	d2rq:propertyDefinitionLabel "dns rrval";
+	d2rq:column "dns.rrval";
+	.
+
+# Table flows
+map:flows a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "flows/@@flows.id@@";
+	d2rq:class holmonflows:flows;
+	d2rq:classDefinitionLabel "flows";
+	.
+map:flows__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property rdfs:label;
+	d2rq:pattern "flows #@@flows.id@@";
+	.
+map:flows_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_id;
+	d2rq:propertyDefinitionLabel "flows id";
+	d2rq:column "flows.id";
+	d2rq:datatype xsd:integer;
+	.
+
+# link to MD:SourceIP
+map:flows_srcip4 a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_srcip4;
+	d2rq:property holmon:SourceIP;
+    d2rq:property MD:SourceIP;
+	d2rq:propertyDefinitionLabel "flows srcip4";
+	d2rq:column "flows.srcip4";
+	d2rq:datatype xsd:integer;
+	.
+map:flows_dstip4 a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_dstip4;
+	d2rq:propertyDefinitionLabel "flows dstip4";
+	d2rq:column "flows.dstip4";
+	d2rq:datatype xsd:integer;
+	.
+map:flows_srcport a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_srcport;
+	d2rq:propertyDefinitionLabel "flows srcport";
+	d2rq:column "flows.srcport";
+	d2rq:datatype xsd:integer;
+	.
+map:flows_dstport a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_dstport;
+	d2rq:propertyDefinitionLabel "flows dstport";
+	d2rq:column "flows.dstport";
+	d2rq:datatype xsd:integer;
+	.
+map:flows_protocol a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_protocol;
+	d2rq:propertyDefinitionLabel "flows protocol";
+	d2rq:column "flows.protocol";
+	d2rq:datatype xsd:integer;
+	.
+map:flows_vlan a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_vlan;
+	d2rq:propertyDefinitionLabel "flows vlan";
+	d2rq:column "flows.vlan";
+	d2rq:datatype xsd:integer;
+	.
+map:flows_srcip6 a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_srcip6;
+	d2rq:propertyDefinitionLabel "flows srcip6";
+	d2rq:column "flows.srcip6";
+	d2rq:datatype xsd:hexBinary;
+	.
+map:flows_dstip6 a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_dstip6;
+	d2rq:propertyDefinitionLabel "flows dstip6";
+	d2rq:column "flows.dstip6";
+	d2rq:datatype xsd:hexBinary;
+	.
+map:flows_flowStartMilliseconds a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_flowStartMilliseconds;
+	d2rq:propertyDefinitionLabel "flows flowStartMilliseconds";
+	d2rq:column "flows.flowStartMilliseconds";
+	d2rq:datatype xsd:dateTime;
+	.
+map:flows_flowEndMilliseconds a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_flowEndMilliseconds;
+	d2rq:propertyDefinitionLabel "flows flowEndMilliseconds";
+	d2rq:column "flows.flowEndMilliseconds";
+	d2rq:datatype xsd:dateTime;
+	.
+map:flows_octetTotalCount a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_octetTotalCount;
+	d2rq:propertyDefinitionLabel "flows octetTotalCount";
+	d2rq:column "flows.octetTotalCount";
+	d2rq:datatype xsd:integer;
+	.
+map:flows_reverseOctetTotalCount a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_reverseOctetTotalCount;
+	d2rq:propertyDefinitionLabel "flows reverseOctetTotalCount";
+	d2rq:column "flows.reverseOctetTotalCount";
+	d2rq:datatype xsd:integer;
+	.
+map:flows_packetTotalCount a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_packetTotalCount;
+	d2rq:propertyDefinitionLabel "flows packetTotalCount";
+	d2rq:column "flows.packetTotalCount";
+	d2rq:datatype xsd:integer;
+	.
+map:flows_reversePacketTotalCount a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_reversePacketTotalCount;
+	d2rq:propertyDefinitionLabel "flows reversePacketTotalCount";
+	d2rq:column "flows.reversePacketTotalCount";
+	d2rq:datatype xsd:integer;
+	.
+map:flows_silkAppLabel a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_silkAppLabel;
+	d2rq:propertyDefinitionLabel "flows silkAppLabel";
+	d2rq:column "flows.silkAppLabel";
+	d2rq:datatype xsd:integer;
+	.
+map:flows_flowEndReason a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_flowEndReason;
+	d2rq:propertyDefinitionLabel "flows flowEndReason";
+	d2rq:column "flows.flowEndReason";
+	d2rq:datatype xsd:integer;
+	.
+map:flows_ObservationDomain a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_ObservationDomain;
+	d2rq:propertyDefinitionLabel "flows ObservationDomain";
+	d2rq:column "flows.ObservationDomain";
+	d2rq:datatype xsd:integer;
+	.
+map:flows_flowAttributes a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_flowAttributes;
+	d2rq:propertyDefinitionLabel "flows flowAttributes";
+	d2rq:column "flows.flowAttributes";
+	d2rq:datatype xsd:integer;
+	.
+map:flows_reverseFlowAttributes a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_reverseFlowAttributes;
+	d2rq:propertyDefinitionLabel "flows reverseFlowAttributes";
+	d2rq:column "flows.reverseFlowAttributes";
+	d2rq:datatype xsd:integer;
+	.
+map:flows_ingressInterface a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_ingressInterface;
+	d2rq:propertyDefinitionLabel "flows ingressInterface";
+	d2rq:column "flows.ingressInterface";
+	d2rq:datatype xsd:integer;
+	.
+map:flows_egressInterface a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flows;
+	d2rq:property holmonflows:flows_egressInterface;
+	d2rq:propertyDefinitionLabel "flows egressInterface";
+	d2rq:column "flows.egressInterface";
+	d2rq:datatype xsd:integer;
+	.
+
+# Table flowstats
+map:flowstats a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "flowstats" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "flowstats";
+	d2rq:class holmonflows:flowstats;
+	d2rq:classDefinitionLabel "flowstats";
+	.
+map:flowstats_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_id;
+	d2rq:propertyDefinitionLabel "flowstats id";
+	d2rq:column "flowstats.id";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_tcpurg a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_tcpurg;
+	d2rq:propertyDefinitionLabel "flowstats tcpurg";
+	d2rq:column "flowstats.tcpurg";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_smallpkt a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_smallpkt;
+	d2rq:propertyDefinitionLabel "flowstats smallpkt";
+	d2rq:column "flowstats.smallpkt";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_largepktct a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_largepktct;
+	d2rq:propertyDefinitionLabel "flowstats largepktct";
+	d2rq:column "flowstats.largepktct";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_nonempty a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_nonempty;
+	d2rq:propertyDefinitionLabel "flowstats nonempty";
+	d2rq:column "flowstats.nonempty";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_datalen a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_datalen;
+	d2rq:propertyDefinitionLabel "flowstats datalen";
+	d2rq:column "flowstats.datalen";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_avgitime a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_avgitime;
+	d2rq:propertyDefinitionLabel "flowstats avgitime";
+	d2rq:column "flowstats.avgitime";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_firstpktlen a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_firstpktlen;
+	d2rq:propertyDefinitionLabel "flowstats firstpktlen";
+	d2rq:column "flowstats.firstpktlen";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_maxpktsize a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_maxpktsize;
+	d2rq:propertyDefinitionLabel "flowstats maxpktsize";
+	d2rq:column "flowstats.maxpktsize";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_firsteight a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_firsteight;
+	d2rq:propertyDefinitionLabel "flowstats firsteight";
+	d2rq:column "flowstats.firsteight";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_stddevlen a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_stddevlen;
+	d2rq:propertyDefinitionLabel "flowstats stddevlen";
+	d2rq:column "flowstats.stddevlen";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_stddevtime a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_stddevtime;
+	d2rq:propertyDefinitionLabel "flowstats stddevtime";
+	d2rq:column "flowstats.stddevtime";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_revtcpurg a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_revtcpurg;
+	d2rq:propertyDefinitionLabel "flowstats revtcpurg";
+	d2rq:column "flowstats.revtcpurg";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_revsmallpkt a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_revsmallpkt;
+	d2rq:propertyDefinitionLabel "flowstats revsmallpkt";
+	d2rq:column "flowstats.revsmallpkt";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_revnonempty a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_revnonempty;
+	d2rq:propertyDefinitionLabel "flowstats revnonempty";
+	d2rq:column "flowstats.revnonempty";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_revdatalen a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_revdatalen;
+	d2rq:propertyDefinitionLabel "flowstats revdatalen";
+	d2rq:column "flowstats.revdatalen";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_revavgitime a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_revavgitime;
+	d2rq:propertyDefinitionLabel "flowstats revavgitime";
+	d2rq:column "flowstats.revavgitime";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_revfirstpktlen a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_revfirstpktlen;
+	d2rq:propertyDefinitionLabel "flowstats revfirstpktlen";
+	d2rq:column "flowstats.revfirstpktlen";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_revlargepktct a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_revlargepktct;
+	d2rq:propertyDefinitionLabel "flowstats revlargepktct";
+	d2rq:column "flowstats.revlargepktct";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_revmaxpktsize a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_revmaxpktsize;
+	d2rq:propertyDefinitionLabel "flowstats revmaxpktsize";
+	d2rq:column "flowstats.revmaxpktsize";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_revstddevlen a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_revstddevlen;
+	d2rq:propertyDefinitionLabel "flowstats revstddevlen";
+	d2rq:column "flowstats.revstddevlen";
+	d2rq:datatype xsd:integer;
+	.
+map:flowstats_revstddevtime a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:flowstats;
+	d2rq:property holmonflows:flowstats_revstddevtime;
+	d2rq:propertyDefinitionLabel "flowstats revstddevtime";
+	d2rq:column "flowstats.revstddevtime";
+	d2rq:datatype xsd:integer;
+	.
+
+# Table ftp
+map:ftp a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "ftp" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "ftp";
+	d2rq:class holmonflows:ftp;
+	d2rq:classDefinitionLabel "ftp";
+	.
+map:ftp_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:ftp;
+	d2rq:property holmonflows:ftp_id;
+	d2rq:propertyDefinitionLabel "ftp id";
+	d2rq:column "ftp.id";
+	d2rq:datatype xsd:integer;
+	.
+map:ftp_listType a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:ftp;
+	d2rq:property holmonflows:ftp_listType;
+	d2rq:propertyDefinitionLabel "ftp listType";
+	d2rq:column "ftp.listType";
+	d2rq:datatype xsd:integer;
+	.
+map:ftp_listTypeValue a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:ftp;
+	d2rq:property holmonflows:ftp_listTypeValue;
+	d2rq:propertyDefinitionLabel "ftp listTypeValue";
+	d2rq:column "ftp.listTypeValue";
+	.
+
+# Table http
+map:http a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "http" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "http";
+	d2rq:class holmonflows:http;
+	d2rq:classDefinitionLabel "http";
+	.
+map:http_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:http;
+	d2rq:property holmonflows:http_id;
+	d2rq:propertyDefinitionLabel "http id";
+	d2rq:column "http.id";
+	d2rq:datatype xsd:integer;
+	.
+map:http_listType a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:http;
+	d2rq:property holmonflows:http_listType;
+	d2rq:propertyDefinitionLabel "http listType";
+	d2rq:column "http.listType";
+	d2rq:datatype xsd:integer;
+	.
+map:http_listTypeValue a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:http;
+	d2rq:property holmonflows:http_listTypeValue;
+	d2rq:propertyDefinitionLabel "http listTypeValue";
+	d2rq:column "http.listTypeValue";
+	.
+
+# Table imap
+map:imap a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "imap" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "imap";
+	d2rq:class holmonflows:imap;
+	d2rq:classDefinitionLabel "imap";
+	.
+map:imap_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:imap;
+	d2rq:property holmonflows:imap_id;
+	d2rq:propertyDefinitionLabel "imap id";
+	d2rq:column "imap.id";
+	d2rq:datatype xsd:integer;
+	.
+map:imap_listType a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:imap;
+	d2rq:property holmonflows:imap_listType;
+	d2rq:propertyDefinitionLabel "imap listType";
+	d2rq:column "imap.listType";
+	d2rq:datatype xsd:integer;
+	.
+map:imap_listTypeValue a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:imap;
+	d2rq:property holmonflows:imap_listTypeValue;
+	d2rq:propertyDefinitionLabel "imap listTypeValue";
+	d2rq:column "imap.listTypeValue";
+	.
+
+# Table irc
+map:irc a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "irc" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "irc";
+	d2rq:class holmonflows:irc;
+	d2rq:classDefinitionLabel "irc";
+	.
+map:irc_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:irc;
+	d2rq:property holmonflows:irc_id;
+	d2rq:propertyDefinitionLabel "irc id";
+	d2rq:column "irc.id";
+	d2rq:datatype xsd:integer;
+	.
+map:irc_listType a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:irc;
+	d2rq:property holmonflows:irc_listType;
+	d2rq:propertyDefinitionLabel "irc listType";
+	d2rq:column "irc.listType";
+	d2rq:datatype xsd:integer;
+	.
+map:irc_listTypeValue a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:irc;
+	d2rq:property holmonflows:irc_listTypeValue;
+	d2rq:propertyDefinitionLabel "irc listTypeValue";
+	d2rq:column "irc.listTypeValue";
+	.
+
+# Table mysql
+map:mysql a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "mysql" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "mysql";
+	d2rq:class holmonflows:mysql;
+	d2rq:classDefinitionLabel "mysql";
+	.
+map:mysql_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:mysql;
+	d2rq:property holmonflows:mysql_id;
+	d2rq:propertyDefinitionLabel "mysql id";
+	d2rq:column "mysql.id";
+	d2rq:datatype xsd:integer;
+	.
+map:mysql_username a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:mysql;
+	d2rq:property holmonflows:mysql_username;
+	d2rq:propertyDefinitionLabel "mysql username";
+	d2rq:column "mysql.username";
+	.
+map:mysql_commandText a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:mysql;
+	d2rq:property holmonflows:mysql_commandText;
+	d2rq:propertyDefinitionLabel "mysql commandText";
+	d2rq:column "mysql.commandText";
+	.
+map:mysql_commandCode a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:mysql;
+	d2rq:property holmonflows:mysql_commandCode;
+	d2rq:propertyDefinitionLabel "mysql commandCode";
+	d2rq:column "mysql.commandCode";
+	d2rq:datatype xsd:integer;
+	.
+
+# Table nntp
+map:nntp a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "nntp" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "nntp";
+	d2rq:class holmonflows:nntp;
+	d2rq:classDefinitionLabel "nntp";
+	.
+map:nntp_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:nntp;
+	d2rq:property holmonflows:nntp_id;
+	d2rq:propertyDefinitionLabel "nntp id";
+	d2rq:column "nntp.id";
+	d2rq:datatype xsd:integer;
+	.
+map:nntp_listType a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:nntp;
+	d2rq:property holmonflows:nntp_listType;
+	d2rq:propertyDefinitionLabel "nntp listType";
+	d2rq:column "nntp.listType";
+	d2rq:datatype xsd:integer;
+	.
+map:nntp_listTypeValue a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:nntp;
+	d2rq:property holmonflows:nntp_listTypeValue;
+	d2rq:propertyDefinitionLabel "nntp listTypeValue";
+	d2rq:column "nntp.listTypeValue";
+	.
+
+# Table p0f
+map:p0f a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "p0f/@@p0f.id@@";
+	d2rq:class holmonflows:p0f;
+	d2rq:classDefinitionLabel "p0f";
+	.
+map:p0f__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:p0f;
+	d2rq:property rdfs:label;
+	d2rq:pattern "p0f #@@p0f.id@@";
+	.
+map:p0f_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:p0f;
+	d2rq:property holmonflows:p0f_id;
+	d2rq:propertyDefinitionLabel "p0f id";
+	d2rq:column "p0f.id";
+	d2rq:datatype xsd:integer;
+	.
+map:p0f_osName a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:p0f;
+	d2rq:property holmonflows:p0f_osName;
+	d2rq:propertyDefinitionLabel "p0f osName";
+	d2rq:column "p0f.osName";
+	.
+map:p0f_osVersion a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:p0f;
+	d2rq:property holmonflows:p0f_osVersion;
+	d2rq:propertyDefinitionLabel "p0f osVersion";
+	d2rq:column "p0f.osVersion";
+	.
+map:p0f_osFingerPrint a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:p0f;
+	d2rq:property holmonflows:p0f_osFingerPrint;
+	d2rq:propertyDefinitionLabel "p0f osFingerPrint";
+	d2rq:column "p0f.osFingerPrint";
+	.
+map:p0f_reverseOsName a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:p0f;
+	d2rq:property holmonflows:p0f_reverseOsName;
+	d2rq:propertyDefinitionLabel "p0f reverseOsName";
+	d2rq:column "p0f.reverseOsName";
+	.
+map:p0f_reverseOsVersion a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:p0f;
+	d2rq:property holmonflows:p0f_reverseOsVersion;
+	d2rq:propertyDefinitionLabel "p0f reverseOsVersion";
+	d2rq:column "p0f.reverseOsVersion";
+	.
+map:p0f_reverseOsFingerPrint a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:p0f;
+	d2rq:property holmonflows:p0f_reverseOsFingerPrint;
+	d2rq:propertyDefinitionLabel "p0f reverseOsFingerPrint";
+	d2rq:column "p0f.reverseOsFingerPrint";
+	.
+
+# Table pop3
+map:pop3 a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "pop3" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "pop3";
+	d2rq:class holmonflows:pop3;
+	d2rq:classDefinitionLabel "pop3";
+	.
+map:pop3_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pop3;
+	d2rq:property holmonflows:pop3_id;
+	d2rq:propertyDefinitionLabel "pop3 id";
+	d2rq:column "pop3.id";
+	d2rq:datatype xsd:integer;
+	.
+map:pop3_listType a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pop3;
+	d2rq:property holmonflows:pop3_listType;
+	d2rq:propertyDefinitionLabel "pop3 listType";
+	d2rq:column "pop3.listType";
+	d2rq:datatype xsd:integer;
+	.
+map:pop3_listTypeValue a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pop3;
+	d2rq:property holmonflows:pop3_listTypeValue;
+	d2rq:propertyDefinitionLabel "pop3 listTypeValue";
+	d2rq:column "pop3.listTypeValue";
+	.
+
+# Table rtsp
+map:rtsp a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "rtsp" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "rtsp";
+	d2rq:class holmonflows:rtsp;
+	d2rq:classDefinitionLabel "rtsp";
+	.
+map:rtsp_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:rtsp;
+	d2rq:property holmonflows:rtsp_id;
+	d2rq:propertyDefinitionLabel "rtsp id";
+	d2rq:column "rtsp.id";
+	d2rq:datatype xsd:integer;
+	.
+map:rtsp_listType a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:rtsp;
+	d2rq:property holmonflows:rtsp_listType;
+	d2rq:propertyDefinitionLabel "rtsp listType";
+	d2rq:column "rtsp.listType";
+	d2rq:datatype xsd:integer;
+	.
+map:rtsp_listTypeValue a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:rtsp;
+	d2rq:property holmonflows:rtsp_listTypeValue;
+	d2rq:propertyDefinitionLabel "rtsp listTypeValue";
+	d2rq:column "rtsp.listTypeValue";
+	.
+
+# Table sip
+map:sip a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "sip" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "sip";
+	d2rq:class holmonflows:sip;
+	d2rq:classDefinitionLabel "sip";
+	.
+map:sip_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:sip;
+	d2rq:property holmonflows:sip_id;
+	d2rq:propertyDefinitionLabel "sip id";
+	d2rq:column "sip.id";
+	d2rq:datatype xsd:integer;
+	.
+map:sip_listType a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:sip;
+	d2rq:property holmonflows:sip_listType;
+	d2rq:propertyDefinitionLabel "sip listType";
+	d2rq:column "sip.listType";
+	d2rq:datatype xsd:integer;
+	.
+map:sip_listTypeValue a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:sip;
+	d2rq:property holmonflows:sip_listTypeValue;
+	d2rq:propertyDefinitionLabel "sip listTypeValue";
+	d2rq:column "sip.listTypeValue";
+	.
+
+# Table slp
+map:slp a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "slp" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "slp";
+	d2rq:class holmonflows:slp;
+	d2rq:classDefinitionLabel "slp";
+	.
+map:slp_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:slp;
+	d2rq:property holmonflows:slp_id;
+	d2rq:propertyDefinitionLabel "slp id";
+	d2rq:column "slp.id";
+	d2rq:datatype xsd:integer;
+	.
+map:slp_slpVersion a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:slp;
+	d2rq:property holmonflows:slp_slpVersion;
+	d2rq:propertyDefinitionLabel "slp slpVersion";
+	d2rq:column "slp.slpVersion";
+	d2rq:datatype xsd:integer;
+	.
+map:slp_slpMessageType a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:slp;
+	d2rq:property holmonflows:slp_slpMessageType;
+	d2rq:propertyDefinitionLabel "slp slpMessageType";
+	d2rq:column "slp.slpMessageType";
+	d2rq:datatype xsd:integer;
+	.
+map:slp_listType a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:slp;
+	d2rq:property holmonflows:slp_listType;
+	d2rq:propertyDefinitionLabel "slp listType";
+	d2rq:column "slp.listType";
+	d2rq:datatype xsd:integer;
+	.
+map:slp_listTypeValue a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:slp;
+	d2rq:property holmonflows:slp_listTypeValue;
+	d2rq:propertyDefinitionLabel "slp listTypeValue";
+	d2rq:column "slp.listTypeValue";
+	.
+
+# Table smtp
+map:smtp a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "smtp" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "smtp";
+	d2rq:class holmonflows:smtp;
+	d2rq:classDefinitionLabel "smtp";
+	.
+map:smtp_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:smtp;
+	d2rq:property holmonflows:smtp_id;
+	d2rq:propertyDefinitionLabel "smtp id";
+	d2rq:column "smtp.id";
+	d2rq:datatype xsd:integer;
+	.
+map:smtp_listType a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:smtp;
+	d2rq:property holmonflows:smtp_listType;
+	d2rq:propertyDefinitionLabel "smtp listType";
+	d2rq:column "smtp.listType";
+	d2rq:datatype xsd:integer;
+	.
+map:smtp_listTypeValue a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:smtp;
+	d2rq:property holmonflows:smtp_listTypeValue;
+	d2rq:propertyDefinitionLabel "smtp listTypeValue";
+	d2rq:column "smtp.listTypeValue";
+	.
+
+# Table ssh
+map:ssh a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "ssh" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "ssh";
+	d2rq:class holmonflows:ssh;
+	d2rq:classDefinitionLabel "ssh";
+	.
+map:ssh_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:ssh;
+	d2rq:property holmonflows:ssh_id;
+	d2rq:propertyDefinitionLabel "ssh id";
+	d2rq:column "ssh.id";
+	d2rq:datatype xsd:integer;
+	.
+map:ssh_listType a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:ssh;
+	d2rq:property holmonflows:ssh_listType;
+	d2rq:propertyDefinitionLabel "ssh listType";
+	d2rq:column "ssh.listType";
+	d2rq:datatype xsd:integer;
+	.
+map:ssh_listTypeValue a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:ssh;
+	d2rq:property holmonflows:ssh_listTypeValue;
+	d2rq:propertyDefinitionLabel "ssh listTypeValue";
+	d2rq:column "ssh.listTypeValue";
+	.
+
+# Table tcp
+map:tcp a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "tcp/@@tcp.id@@";
+	d2rq:class holmonflows:tcp;
+	d2rq:classDefinitionLabel "tcp";
+	.
+map:tcp__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tcp;
+	d2rq:property rdfs:label;
+	d2rq:pattern "tcp #@@tcp.id@@";
+	.
+map:tcp_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tcp;
+	d2rq:property holmonflows:tcp_id;
+	d2rq:propertyDefinitionLabel "tcp id";
+	d2rq:column "tcp.id";
+	d2rq:datatype xsd:integer;
+	.
+map:tcp_tcpSequenceNumber a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tcp;
+	d2rq:property holmonflows:tcp_tcpSequenceNumber;
+	d2rq:propertyDefinitionLabel "tcp tcpSequenceNumber";
+	d2rq:column "tcp.tcpSequenceNumber";
+	d2rq:datatype xsd:integer;
+	.
+map:tcp_reverseTcpSequenceNumber a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tcp;
+	d2rq:property holmonflows:tcp_reverseTcpSequenceNumber;
+	d2rq:propertyDefinitionLabel "tcp reverseTcpSequenceNumber";
+	d2rq:column "tcp.reverseTcpSequenceNumber";
+	d2rq:datatype xsd:integer;
+	.
+map:tcp_initialTCPFlags a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tcp;
+	d2rq:property holmonflows:tcp_initialTCPFlags;
+	d2rq:propertyDefinitionLabel "tcp initialTCPFlags";
+	d2rq:column "tcp.initialTCPFlags";
+	.
+map:tcp_reverseInitialTCPFlags a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tcp;
+	d2rq:property holmonflows:tcp_reverseInitialTCPFlags;
+	d2rq:propertyDefinitionLabel "tcp reverseInitialTCPFlags";
+	d2rq:column "tcp.reverseInitialTCPFlags";
+	.
+map:tcp_unionTCPFlags a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tcp;
+	d2rq:property holmonflows:tcp_unionTCPFlags;
+	d2rq:propertyDefinitionLabel "tcp unionTCPFlags";
+	d2rq:column "tcp.unionTCPFlags";
+	.
+map:tcp_reverseUnionTCPFlags a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tcp;
+	d2rq:property holmonflows:tcp_reverseUnionTCPFlags;
+	d2rq:propertyDefinitionLabel "tcp reverseUnionTCPFlags";
+	d2rq:column "tcp.reverseUnionTCPFlags";
+	.
+
+# Table tftp
+map:tftp a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "tftp/@@tftp.id@@";
+	d2rq:class holmonflows:tftp;
+	d2rq:classDefinitionLabel "tftp";
+	.
+map:tftp__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tftp;
+	d2rq:property rdfs:label;
+	d2rq:pattern "tftp #@@tftp.id@@";
+	.
+map:tftp_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tftp;
+	d2rq:property holmonflows:tftp_id;
+	d2rq:propertyDefinitionLabel "tftp id";
+	d2rq:column "tftp.id";
+	d2rq:datatype xsd:integer;
+	.
+map:tftp_tftpFilename a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tftp;
+	d2rq:property holmonflows:tftp_tftpFilename;
+	d2rq:propertyDefinitionLabel "tftp tftpFilename";
+	d2rq:column "tftp.tftpFilename";
+	.
+map:tftp_tftpMode a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tftp;
+	d2rq:property holmonflows:tftp_tftpMode;
+	d2rq:propertyDefinitionLabel "tftp tftpMode";
+	d2rq:column "tftp.tftpMode";
+	.
+
+# Table tls
+map:tls a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	# Sorry, I don't know which columns to put into the uriPattern
+	#     for "tls" because the table doesn't have a primary key.
+	#     Please specify it manually.
+	d2rq:uriPattern "tls";
+	d2rq:class holmonflows:tls;
+	d2rq:classDefinitionLabel "tls";
+	.
+map:tls_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tls;
+	d2rq:property holmonflows:tls_id;
+	d2rq:propertyDefinitionLabel "tls id";
+	d2rq:column "tls.id";
+	d2rq:datatype xsd:integer;
+	.
+map:tls_ie a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tls;
+	d2rq:property holmonflows:tls_ie;
+	d2rq:propertyDefinitionLabel "tls ie";
+	d2rq:column "tls.ie";
+	d2rq:datatype xsd:integer;
+	.
+map:tls_cert_no a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tls;
+	d2rq:property holmonflows:tls_cert_no;
+	d2rq:propertyDefinitionLabel "tls cert_no";
+	d2rq:column "tls.cert_no";
+	d2rq:datatype xsd:integer;
+	.
+map:tls_data a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tls;
+	d2rq:property holmonflows:tls_data;
+	d2rq:propertyDefinitionLabel "tls data";
+	d2rq:column "tls.data";
+	.
+

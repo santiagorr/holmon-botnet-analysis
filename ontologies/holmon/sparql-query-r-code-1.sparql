@@ -1,0 +1,1 @@
+SELECT (COUNT(DISTINCT ?instance) as ?no) ?dest_addr WHERE { ?instance a <http://localhost:2020/resource/vocab/DNSMessageHeader> . ?instance <http://localhost:2020/resource/vocab/DNSMessageHeader_Dest_addr> ?dest_addr . ?instance <http://localhost:2020/resource/vocab/DNSMessageHeader_R_code> ?r_code . FILTER (?r_code = "1") } GROUP BY ?dest_addr ORDER BY ?dest_addr

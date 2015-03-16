@@ -1,0 +1,57 @@
+Source: libfixbuf
+Maintainer: Johannes Schauer <j.schauer@email.de>
+Section: net
+Priority: optional
+Standards-Version: 3.9.5
+Build-Depends:
+ debhelper (>= 9),
+ libglib2.0-dev,
+ dh-autoreconf
+Build-Depends-Indep:
+ doxygen
+Homepage: http://tools.netsa.cert.org/fixbuf/index.html
+
+Package: libfixbuf3
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Multi-Arch: same
+Section: libs
+Description: Implementation of the IPFIX protocol - shared library
+ libfixbuf is a compliant implementation of the IPFIX Protocol, as defined in
+ RFC 5101. It supports the information model defined in RFC 5102, extended as
+ proposed by RFC 5103 to support information elements for representing biflows.
+ libfixbuf supports UDP, TCP, SCTP, TLS over TCP, and Spread as transport
+ protocols. It also supports operation as an IPFIX File Writer or IPFIX File
+ Reader.
+ .
+ This is the shared library.
+
+Package: libfixbuf3-dev
+Architecture: any
+Depends: libfixbuf3 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Multi-Arch: same
+Section: libdevel
+Description: Implementation of the IPFIX protocol - development headers
+ libfixbuf is a compliant implementation of the IPFIX Protocol, as defined in
+ RFC 5101. It supports the information model defined in RFC 5102, extended as
+ proposed by RFC 5103 to support information elements for representing biflows.
+ libfixbuf supports UDP, TCP, SCTP, TLS over TCP, and Spread as transport
+ protocols. It also supports operation as an IPFIX File Writer or IPFIX File
+ Reader.
+ .
+ These are the development headers.
+
+Package: libfixbuf3-doc
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Section: doc
+Description: Implementation of the IPFIX protocol - documentation
+ libfixbuf is a compliant implementation of the IPFIX Protocol, as defined in
+ RFC 5101. It supports the information model defined in RFC 5102, extended as
+ proposed by RFC 5103 to support information elements for representing biflows.
+ libfixbuf supports UDP, TCP, SCTP, TLS over TCP, and Spread as transport
+ protocols. It also supports operation as an IPFIX File Writer or IPFIX File
+ Reader.
+ .
+ This is the documentation package.

@@ -1,0 +1,75 @@
+<composition id="stage2_single" app_id="NR">
+  <general>
+    <clock type="wall" />
+  </general>
+
+  <install>
+    <threadpool id="src_thread" num_threads="1" >
+      <core number="0"/>
+	</threadpool>
+
+    <block id="src" type="DNSTraceReader" invocation="async" threadpool="src_thread"> 
+      <params>
+          <file_name val = "/home/andreas/projects/demons/wp5/maldomains/data_traces/blockmon_fifo"/>
+          <time_align val = "false"/>
+          <skip_until_timestamp val = "0"/>
+		  <trace_speed_mul val = "0"/>
+      </params>
+    </block>
+
+      <block id="mapfilter" type="DNSMappingFilter" invocation="direct"> 
+        <params>
+          <time_bin_complete_flush val = "7200"/>
+          <table_memory val = "3600"/>
+        </params>
+      </block>
+
+    <block id="mappingAnalyzer1" type="DNSMappingAnalyzer" invocation="direct"> 
+      <params>
+        <time_bin_merge val = "21600"/>
+        <time_bin_split_cleanup val = "172800"/>
+        <time_bin_printout val = "86400"/>
+        <suspicious_file_prefix val = "/home/andreas/tmp/dnsmap_test/suspicious1_"/>
+        <dump_file_prefix val = "/home/andreas/tmp/dnsmap_test/dump1_"/>
+        <load_file val = "/home/andreas/tmp/dnsmap_test/dump_final1.txt"/>
+        <load_config val = "false"/>
+	    <tld_names_file val = "/home/andreas/svn/private/code/python-eggs/pydnsmap/pydnsmap/data/effective_tld_names.dat"/>
+	    <geoip_file val = "/home/andreas/svn/private/code/python-eggs/pydnsmap/pydnsmap/data/GeoIPASNum.dat"/>
+        <max_cluster_size val = "30"/>
+        <max_num_clusters val = "100"/>
+        <clustering_threshold val = "0.4"/>
+        <domain_count_threshold val = "0.5"/>
+      </params>
+    </block>
+
+    <block id="maliciousAnalyzerMoving1" type="DNSSuspiciousMappingAnalyzerD" invocation="direct"> 
+      <params>
+		  <geoip_file val = "/home/andreas/svn/private/code/python-eggs/pydnsmap/pydnsmap/data/GeoIPASNum.dat"/>
+		  <enable_txt_output val = "true"/>
+          <malicious_file_prefix val = "/home/andreas/tmp/dnsmap_test/malicious_file1.txt"/>
+		  <update_cnt_thr val = "1000"/>
+		  <input_table_memory val = "604800"/>
+		  <output_table_memory val = "86400"/>
+		  <enable_socket_output val = "false"/>
+		  <socket_ip val = "192.168.1.79"/>
+		  <socket_port val = "60007"/>
+		  <geo_city_file val = "/home/andreas/svn/private/code/python-eggs/pydnsmap/pydnsmap/data/GeoLiteCity.dat"/>
+		  <enable_vis_buffer_output val = "false"/>
+		  <db_name val = "dnsAnalysis"/>
+		  <db_ip val = "192.168.0.55"/>
+		  <db_user val = "mirko"/>
+		  <db_passwd val = "mirko"/>
+	   	  <ip_dist_score_threshold val = "0.6"/>
+		  <min_num_domains val = "5"/>
+		  <min_num_ips val = "5"/>
+		  <min_num_ases val = "3"/>
+          <regex_list_file val= "/home/andreas/projects/demons/svn/Sources/blockmon/main/node/usr/app_nranalysis/whitelist_regex.txt"/>
+      </params>
+    </block>
+
+    <connection src_block="src" src_gate="out_msg" dst_block="mapfilter" dst_gate="in_msg"/>
+    <connection src_block="mapfilter" src_gate="out_msg" dst_block="mappingAnalyzer1" dst_gate="in_msg"/>
+    <connection src_block="mappingAnalyzer1" src_gate="out_msg2" dst_block="maliciousAnalyzerMoving1" dst_gate="in_msg"/>
+
+  </install>
+</composition>

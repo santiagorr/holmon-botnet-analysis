@@ -1,0 +1,264 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/santiago/ontologies/2014/1/DNSTraffic-1#"
+     xml:base="http://www.semanticweb.org/santiago/ontologies/2014/1/DNSTraffic-1"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1">
+        <owl:versionInfo>0.1</owl:versionInfo>
+        <owl:imports rdf:resource="http://www.fp7-moment.eu/Moment.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#DestinationIP -->
+
+    <rdf:Description rdf:about="http://www.fp7-moment.eu/MomentDataV2.owl#DestinationIP">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataDestAddr"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.fp7-moment.eu/MomentDataV2.owl#SourceIP -->
+
+    <rdf:Description rdf:about="http://www.fp7-moment.eu/MomentDataV2.owl#SourceIP">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataSourceAddr"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/DNSTraffic-1#DNSData -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSData">
+        <rdfs:subClassOf rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#MeasurementData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataAdditionalInformationCount -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataAdditionalInformationCount">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataAnswerCount -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataAnswerCount">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataAuthorityCount -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataAuthorityCount">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataDestAddr -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataDestAddr">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataQueryCount -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataQueryCount">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataQueryID -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataQueryID">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataQuestionResponseFlag -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataQuestionResponseFlag">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataResponseCode -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataResponseCode">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataSourceAddr -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataSourceAddr">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataTime -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataTime">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataTimestamp -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataTimestamp">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/DNSTraffic-1#DNSPacket -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSPacket">
+        <rdfs:subClassOf rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#Measurement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/holmon/DNSTraffic-1#DNSPacketHeader -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSPacketHeader">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSPacket"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataResponseCode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataTimestamp"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataQueryCount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataDestAddr"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataAnswerCount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataAuthorityCount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataAdditionalInformationCount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataSourceAddr"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataQueryID"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.fp7-moment.eu/MomentDataV2.owl#hasMeasurementData"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataQuestionResponseFlag"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataAdditionalInformationCount"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataAnswerCount"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataAuthorityCount"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataQueryCount"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataQueryID"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataQuestionResponseFlag"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataResponseCode"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataDestAddr"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataSourceAddr"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataTime"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/holmon/DNSTraffic-1#DNSDataTimestamp"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

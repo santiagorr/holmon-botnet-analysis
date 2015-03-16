@@ -1,0 +1,11 @@
+compilar con python2.7
+asegurarse de las rutas con cmake -i
+
+agregados:
+CMakeList.txt
+app/n*
+lib/dns
+messages/Alert*
+
+
+editar daemon/config con las rutas apropiadas

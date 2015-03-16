@@ -1,0 +1,43 @@
+// It includes the data to write to database
+// It contains both DNAME and AS statistics
+
+message dns_statistics {
+    message DataMessage {
+        required string name = 1;
+        //required uint32 timestamp = 2;
+        //required bool create_table_partition = 3;
+        
+        repeated string ip_address = 4;
+        repeated uint32 a_records_counter = 5;
+        //repeated uint32 alias_resolution_steps = 6;
+        
+        optional float ip_distance_moving_avg = 7;
+        optional float unique_ttls_counter = 8;
+        optional float ttl_moving_avg = 9;
+        optional float ttl_standard_dev = 10;
+        
+        //optional double centroid_num_loc_lat = 11;
+        //optional double centroid_num_loc_lon = 12;
+        //optional double centroid_num_queries_lat = 13;
+        //optional double centroid_num_queries_lon = 14;
+      
+        optional uint32 a_queries_counter = 15;
+        optional uint32 dname_queries_counter = 16;
+        optional uint32 as_counter = 17;
+        
+        //optional float as_score = 18;
+        //optional double lev_distance_2ld = 19;
+        //optional double lev_distance_3ld = 20;
+    }
+    
+    optional DataMessage data = 1;
+
+    message ControlMessage {
+        required uint32 timestamp = 1;
+        required bool start = 2; //1 = start mex, 0 = end mex
+    }
+   
+    optional ControlMessage control = 2;
+
+}
+  

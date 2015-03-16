@@ -1,0 +1,21 @@
+//includes parameters needed to update
+//related table in mysql database from broker
+
+message dns_analysis_results {
+    message DataMessage {
+      required string dname = 1;
+      required uint32 timestamp = 2;
+      required bool whitelisted = 3;
+      required float score = 4;
+    }
+
+    optional DataMessage data = 1;
+ 
+    message ControlMessage {
+        required uint32 timestamp = 1;
+        required bool start = 2; //1 = start mex, 0 = end mex
+    }
+   
+    optional ControlMessage control = 2;
+}
+  

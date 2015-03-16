@@ -1,0 +1,39 @@
+Format: 1.8
+Date: Sat, 04 Oct 2014 15:56:58 +0200
+Source: libfixbuf
+Binary: libfixbuf3 libfixbuf3-dev libfixbuf3-doc
+Architecture: source amd64 all
+Version: 1.6.0+ds-1
+Distribution: unstable
+Urgency: medium
+Maintainer: Johannes Schauer <j.schauer@email.de>
+Changed-By: Johannes Schauer <j.schauer@email.de>
+Description: 
+ libfixbuf3 - Implementation of the IPFIX protocol - shared library
+ libfixbuf3-dev - Implementation of the IPFIX protocol - development headers
+ libfixbuf3-doc - Implementation of the IPFIX protocol - documentation
+Changes: 
+ libfixbuf (1.6.0+ds-1) unstable; urgency=medium
+ .
+   * New upstream release
+Checksums-Sha1: 
+ ef617282a9e4dac8eef7dd606a6be6a4546ef044 1032 libfixbuf_1.6.0+ds-1.dsc
+ c04ac504c752505c3f3d08e296a9a3922e16277a 561969 libfixbuf_1.6.0+ds.orig.tar.gz
+ 4c029d7019c28ebaced76fa4576cd56af54b6279 5582 libfixbuf_1.6.0+ds-1.debian.tar.gz
+ 9c482b11f41d611fb252d44d66fb28bab6e0440f 67640 libfixbuf3_1.6.0+ds-1_amd64.deb
+ 6ac1a221fbe695483875be3a1b7d581a72ae8f2d 116932 libfixbuf3-dev_1.6.0+ds-1_amd64.deb
+ 09df0b2080e29705012039eaffe23ea980f06fd5 196640 libfixbuf3-doc_1.6.0+ds-1_all.deb
+Checksums-Sha256: 
+ 6ab453099f89c207f3f51d94998f2ec07183738ade3120154c854907fb07516f 1032 libfixbuf_1.6.0+ds-1.dsc
+ 6c79ce62160d5527bf17ab8f6b673c56652d01cbeb01c7e8157977e17b927ea7 561969 libfixbuf_1.6.0+ds.orig.tar.gz
+ 5c07abe8cc70b1636bf281375105daca69cbdcd1cc24be06b4a6d36d554f0805 5582 libfixbuf_1.6.0+ds-1.debian.tar.gz
+ 2a8460c20dd53a3feb428203c22ac115a719f0dee21c4e7f4f66d7ab2de50d6e 67640 libfixbuf3_1.6.0+ds-1_amd64.deb
+ ec1a8bad5fa7a1ef7f670d40f0725fc6015167f985e126ddc52fd8a43d5a8313 116932 libfixbuf3-dev_1.6.0+ds-1_amd64.deb
+ e4e4883fab515a67a6d2d7bf5dcd3a694730d20579b5c8fd5bb38a5e923884c6 196640 libfixbuf3-doc_1.6.0+ds-1_all.deb
+Files: 
+ f0c78368dc5dc3c11b3edcb0db825ede 1032 net optional libfixbuf_1.6.0+ds-1.dsc
+ e03ad19f034e538ec74de57e61a1415b 561969 net optional libfixbuf_1.6.0+ds.orig.tar.gz
+ 0f20ec9f560cec33b1ff79a004adc7ff 5582 net optional libfixbuf_1.6.0+ds-1.debian.tar.gz
+ 4a05d7296cca71b6bf7790579c71ae3e 67640 libs optional libfixbuf3_1.6.0+ds-1_amd64.deb
+ 4456fbfa4e00784b85e8d4c26f093ad7 116932 libdevel optional libfixbuf3-dev_1.6.0+ds-1_amd64.deb
+ 5da8eb2764cc8c38adba4a2cb58ffedf 196640 doc optional libfixbuf3-doc_1.6.0+ds-1_all.deb
